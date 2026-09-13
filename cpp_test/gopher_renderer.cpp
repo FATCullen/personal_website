@@ -91,6 +91,8 @@ RenderResult GopherRenderer::renderList(cmark_node* node, int subWidth, bool isS
         int itemWidth = subWidth - (3 + (int)label.size());
 
         RenderResult r = renderNode(item, itemWidth, true);
+        while (r.text.back() == '\n') r.text.pop_back();
+        
         out.text += gtxt::bulletize(r.text, label);
         out.links.insert(out.links.end(), r.links.begin(), r.links.end());
         ++index;
@@ -186,7 +188,7 @@ std::string GopherRenderer::renderFooter() {
 
 std::string GopherRenderer::renderDocument(cmark_node* doc) {
     std::string out;
-    
+
     out += renderHeader();
     for (cmark_node* c = cmark_node_first_child(doc); c; c = cmark_node_next(c)) {
         RenderResult r = renderNode(c, subWidth_, false);
