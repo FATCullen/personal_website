@@ -176,12 +176,24 @@ std::string GopherRenderer::flushLinks(const std::vector<GopherLink>& links) con
     return out;
 }
 
+std::string GopherRenderer::renderHeader() {
+    return "1Home\t/\n";
+}
+
+std::string GopherRenderer::renderFooter() {
+    return "";
+}
+
 std::string GopherRenderer::renderDocument(cmark_node* doc) {
     std::string out;
+    
+    out += renderHeader();
     for (cmark_node* c = cmark_node_first_child(doc); c; c = cmark_node_next(c)) {
         RenderResult r = renderNode(c, subWidth_, false);
         out += flushText(r.text);
         out += flushLinks(r.links);
     }
+    out += renderFooter();
+
     return out;
 }

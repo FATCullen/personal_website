@@ -41,4 +41,7 @@ private:
 
     std::string flushText(std::string text) const;
     std::string flushLinks(const std::vector<GopherLink>& links) const;
+
+    std::string renderHeader();
+    std::string renderFooter();
 };
