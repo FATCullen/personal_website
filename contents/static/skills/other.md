@@ -1,0 +1,1 @@
+CAD, Soldering, Circuit design

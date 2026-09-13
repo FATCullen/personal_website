@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Experience — Your Name</title>
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+  <div id="bg-fallback" aria-hidden="true"></div>
+  <div id="bg-root" aria-hidden="true"></div>
+
+  <header id="site-header">
+    <a href="/" class="icon-btn" id="home-btn" aria-label="Home">
+      <span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/house-solid-full.svg')"></span>
+    </a>
+
+    <a href="/experience.html" class="icon-btn">
+      Experience
+    </a>
+
+    <a href="/projects.html" class="icon-btn">
+      Projects
+    </a>
+
+    <!-- <a href="/" class="icon-btn">
+      Blog
+    </a> -->
+
+    <button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark mode" aria-pressed="false" disabled>
+      <span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/circle-half-stroke-solid-full.svg')"></span>
+    </button>
+
+    <div class="bg-control" id="bg-control">
+      <div class="bg-control__label">
+        <span class="bg-control__eyebrow">Current background</span>
+        <span class="bg-control__name" id="bg-name">Default</span>
+      </div>
+      <button class="icon-btn" id="reroll-btn" aria-label="Change background animation" disabled>
+        <span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/rotate-right-solid-full.svg')"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="card card--wide">
+    <section class="page-section">
+      <h2>Work</h2>
+      <div class="entry-list">
+        <div class="entry">
+          <div class="entry__logo"><img src="/images/logos/nokia.svg" alt="" aria-hidden="true"></div>
+          <div class="entry__body">
+            <div class="entry__header">
+              <span class="entry__title">DSP Firmware Engineer - Nokia</span>
+              <span class="entry__dates">Fall 2026</span>
+            </div>
+            <p class="entry__desc">
+              Working on DSP SDK for pluggable optical engines
+            </p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry__logo"><img src="/images/logos/brainridge.svg" alt="" aria-hidden="true"></div>
+          <div class="entry__body">
+            <div class="entry__header">
+              <span class="entry__title">Software Engineering Consultant - BrainRidge</span>
+              <span class="entry__dates">Winter 2026</span>
+            </div>
+            <p class="entry__desc">
+              FinTech apps for companies including BMO and Interac
+            </p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry__logo"><img src="/images/logos/fencesee.svg" alt="" aria-hidden="true"></div>
+          <div class="entry__body">
+            <div class="entry__header">
+              <span class="entry__title">Full Stack Developer - FenceSee</span>
+              <span class="entry__dates">Summer 2025</span>
+            </div>
+            <p class="entry__desc">
+              SaaS for planning fencing jobs
+            </p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry__logo"><img src="/images/logos/mina.svg" alt="" aria-hidden="true"></div>
+          <div class="entry__body">
+            <div class="entry__header">
+              <span class="entry__title">Research Assistant - MiNa Labs</span>
+              <span class="entry__dates">Summer 2023</span>
+            </div>
+            <p class="entry__desc">
+              University of Victoria microfluidics and nanotech lab
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section">
+      <h2>Education</h2>
+      <div class="entry-list">
+        <div class="entry">
+          <div class="entry__logo"><img src="/images/logos/waterloo.svg" alt="" aria-hidden="true"></div>
+          <div class="entry__body">
+            <div class="entry__header">
+              <span class="entry__title">BEng - Software Engineering - University of Waterloo</span>
+              <span class="entry__dates">2024 – 2029</span>
+            </div>
+            <p class="entry__desc">
+              GPA - 3.8
+            </p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry__logo"><img src="/images/logos/gns.svg" alt="" aria-hidden="true"></div>
+          <div class="entry__body">
+            <div class="entry__header">
+              <span class="entry__title">IB Program - Glenlyon Norfolk School</span>
+              <span class="entry__dates">2020 – 2024</span>
+            </div>
+            <p class="entry__desc">
+              Average - 95% Overall, 99% in STEM
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/main.js" defer></script>
+</body>
+</html>
