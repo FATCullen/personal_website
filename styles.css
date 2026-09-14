@@ -47,6 +47,14 @@ body {
   font-family: system-ui, sans-serif;
 }
 
+body.scrollable {
+  overflow-y: auto;
+  height: auto;
+  min-height: 100dvh;
+  display: block;
+  padding: 3rem 1.25rem;
+}
+
 @media (max-height: 480px) {
   body {
     overflow-y: auto;
