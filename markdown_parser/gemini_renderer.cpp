@@ -155,7 +155,7 @@ std::string GeminiRenderer::flushLinks(const std::vector<GemLink>& links) const 
 }
 
 std::string GeminiRenderer::renderHeader() {
-    return "";
+    return "=> / Home\n\n";
 }
 
 std::string GeminiRenderer::renderFooter() {

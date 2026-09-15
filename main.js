@@ -88,6 +88,28 @@ async function initBackground() {
   });
 }
 
+function initBlogSearch() {
+  const input = document.getElementById('blog-search');
+  const items = document.querySelectorAll('.post-item');
+  const empty = document.getElementById('blog-empty');
+  if (!input || items.length === 0) return;
+
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    let visibleCount = 0;
+
+    items.forEach((item) => {
+      const haystack = `${item.dataset.title} ${item.dataset.tags}`.toLowerCase();
+      const match = haystack.includes(q);
+      item.hidden = !match;
+      if (match) visibleCount++;
+    });
+
+    if (empty) empty.hidden = visibleCount !== 0;
+  });
+}
+
 initTheme();
 initReroll();
 initBackground();
+initBlogSearch();

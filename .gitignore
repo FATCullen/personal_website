@@ -1,2 +1,5 @@
 .DS_Store
 *.o
+/markdown_parser/markdown_parser
+/*.md
+!/README.md

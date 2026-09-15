@@ -74,7 +74,8 @@
 .article img {
   max-width: 100%;
   display: block;
-  margin: 1.75rem 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 .article figure { margin: 1.75rem 0; }
 .article figcaption {
@@ -103,4 +104,20 @@
 }
 .article th {
   border-bottom: 2px solid rgba(var(--fg-rgb), 0.3);
+}
+
+.article-footer {
+  max-width: 40rem;
+  margin: 4rem auto 0;
+  text-align: center;
+}
+.article-footer__rule {
+  border: none;
+  border-top: 1px solid rgba(var(--fg-rgb), 0.15);
+  margin-bottom: 1.25rem;
+}
+.article-footer__text {
+  font-size: 0.8rem;
+  opacity: 0.55;
+  margin: 0;
 }

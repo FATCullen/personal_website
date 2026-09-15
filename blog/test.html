@@ -1,14 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blog — FATCullen</title>
-  <script>document.documentElement.classList.remove('no-js');</script>
-  <link rel="stylesheet" href="/styles.css">
-  <link rel="stylesheet" href="/blog/article.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog — FATCullen</title>
+<script>document.documentElement.classList.remove('no-js');</script>
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/blog/blog.css">
+<link rel="stylesheet" href="/blog/article.css">
 </head>
-<body class="scrollable">
+<body class="scrollable has-fixed-header">
+<header class="blog-header">
+<nav class="blog-header__nav">
+<a href="/blog/" class="blog-header__link" aria-current="page">Blog</a>
+<a href="/" class="blog-header__link">Portfolio</a>
+</nav>
+<button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark mode" aria-pressed="false" disabled>
+<span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/circle-half-stroke-solid-full.svg')"></span>
+</button>
+</header>
 <main class="article">
 <p>This website is available in four different formats, across three protocols.  They all have (roughly) the same content, just different formating, either for accessibility or because of the limitations of the transfer protocol.  The following versions are available:</p>
 <h1>BIG WEB VERSIONS</h1>
@@ -33,13 +43,13 @@ Optimized for viewing with JS off, or through a text based web browser</li>
 <ul>
 <li><a href="gemini://fatcullen.com">gemini://fatcullen.com</a></li>
 </ul>
-<p><img src="../../images/website/gemini-protocol.png" alt="Badge reading 'free, best viewed on the gemini protocol'" /></p>
+<p><img src="/images/blog/xkcd554.png" alt="Badge reading 'free, best viewed on the gemini protocol'" /></p>
 <h3>Gopher</h3>
 <p><a href="https://commons.lib.jmu.edu/cgi/viewcontent.cgi?article=1196&amp;context=selectedworks">The Gopher protocol</a> was an early alternative to HTTP, which fell into obscurity (think <a href="https://en.wikipedia.org/w/index.php?title=Videotape_format_war&amp;oldid=1343706489">Betamax vs. VHS</a>).  It's effectivley the predecessor to the modern World Wide Web.  Pages have a very basic menu-style layout, just plain text and links.  You can find the site hosted in Gopherspace at its standard URL:</p>
 <ul>
 <li><a href="gopher://fatcullen.com">gopher://fatcullen.com</a></li>
 </ul>
-<p><img src="../../images/website/gopher-protocol.png" alt="Surf the Internet with Gopher t-shirt graphic" /></p>
+<p><img src="/images/blog/xkcd554.png" alt="Surf the Internet with Gopher t-shirt graphic" /></p>
 <h1>Markdown: Syntax</h1>
 <ul>
 <li><a href="#overview">Overview</a>
@@ -323,6 +333,11 @@ HTML <code>&lt;em&gt;</code> tag; double <code>*</code>'s or <code>_</code>'s wi
 Unlike a pre-formatted code block, a code span indicates code within a
 normal paragraph. For example:</p>
 <p>Use the <code>printf()</code> function.</p>
+<script type="module" src="/main.js" defer></script>
 </main>
+<footer class="article-footer">
+  <hr class="article-footer__rule">
+  <p class="article-footer__text">&copy; 2026 Finn Cullen. All rights reserved.</p>
+</footer>
 </body>
 </html>

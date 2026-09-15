@@ -9,7 +9,7 @@
   --alt-hl-rgb: 175, 87, 8;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --bg: #000000;
     --fg: #ffffff;
@@ -20,7 +20,7 @@
     --hl-rgb: 244, 124, 17;
     --alt-hl-rgb: 175, 87, 8;
   }
-} */
+}
 
 :root[data-theme="dark"] {
   --bg: #000000; --fg: #ffffff; --hl: #f47c11; --alt-hl: #af5708; --bg-rgb: 0,0,0; --fg-rgb: 255,255,255; --hl-rgb: 244, 124, 17; --alt-hl-rgb: 175, 87, 8;
@@ -193,7 +193,11 @@ html:not(.no-js) .js-only { display: flex; }
 }
 
 .card h1 { margin-top: 0; }
-.card a { color: var(--hl); }
+.card a {
+  color: var(--hl);
+  text-underline-offset: 2px;
+}
+.card a:hover { color: var(--alt-hl); }
 
 .card::-webkit-scrollbar { display: none; }
 
@@ -267,7 +271,6 @@ html:not(.no-js) .js-only { display: flex; }
   line-height: 1.2;
   opacity: 0.9;
 }
-
 
 .project-card {
   margin-bottom: 1.0rem;

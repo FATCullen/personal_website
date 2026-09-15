@@ -1,0 +1,20 @@
+```
+               ____________________________________                
+               \_   _____/  _  \__    ___/\_   ___ \               
+                |    __)/  /_\  \|    |   /    \  \/               
+                |     \/    |    \    |   \     \____              
+                \___  /\____|__  /____|    \______  /              
+                    \/         \/                 \/               
+```
+
+Hi, my name is Finn!
+Welcome to my gemlog.
+I study software engineering at the University of Waterloo, and I'm currently interning at Nokia for firmware development.
+
+In my free time I help teach my university's Judo club, and recently I've mostly been playing Dwarf Fortress and reading parts of Terry Pratchett's 'Discworld.'
+
+You can contact me at
+=> mailto:fatcullen2@gmail.com fatcullen2@gmail.com
+
+## BLOG:
+

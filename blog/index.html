@@ -8,26 +8,16 @@
   <link rel="stylesheet" href="/styles.css">
   <link rel="stylesheet" href="/blog/blog.css">
 </head>
-<body class="scrollable">
+<body class="scrollable has-fixed-header">
 
-  <header id="site-header">
-    <a href="/" class="icon-btn" id="home-btn" aria-label="Home">
-      <span class="icon" aria-hidden="true" style="--icon-url: url('/icons/home.svg')"></span>
-    </a>
-    <details id="page-menu">
-      <summary class="icon-btn" aria-label="Menu">
-        <span class="icon" aria-hidden="true" style="--icon-url: url('/icons/menu.svg')"></span>
-      </summary>
-      <ul>
-        <li><a href="/experience">Experience</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/blog">Blog</a></li>
-      </ul>
-    </details>
+  <header class="blog-header">
+    <nav class="blog-header__nav">
+      <a href="/blog/" class="blog-header__link" aria-current="page">Blog</a>
+      <a href="/" class="blog-header__link">Portfolio</a>
+    </nav>
     <button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark mode" aria-pressed="false" disabled>
-      <span class="icon" aria-hidden="true" style="--icon-url: url('/icons/theme.svg')"></span>
+      <span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/circle-half-stroke-solid-full.svg')"></span>
     </button>
-    <!-- no .bg-control here — this page has no background system -->
   </header>
 
   <main class="blog-page">
@@ -45,9 +35,9 @@
 
     <ul class="post-list" id="post-list">
       <li class="post-item" data-title="On writing small tools" data-tags="dev notes" data-date="2026-08-14">
-        <a href="/blog/on-writing-small-tools.html">
+        <a href="/blog/test.html">
           <span class="post-item__date">Aug 14, 2026</span>
-          <span class="post-item__title">On writing small tools</span>
+          <span class="post-item__title">Test</span>
           <span class="post-item__tags">
             <span class="tag">dev</span>
             <span class="tag">notes</span>
