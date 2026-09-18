@@ -9,12 +9,12 @@
 
 Hi, my name is Finn!
 Welcome to my gemlog.
-I study software engineering at the University of Waterloo, and I'm currently interning at Nokia for firmware development.
+INSERT_ABOUT_PROFESSIONAL
 
-In my free time I help teach my university's Judo club, and recently I've mostly been playing Dwarf Fortress and reading parts of Terry Pratchett's 'Discworld.'
+INSERT_ABOUT_PERSONAL
 
 You can contact me at
 => mailto:fatcullen2@gmail.com fatcullen2@gmail.com
 
 ## BLOG:
-
+INSERT_BLOG
