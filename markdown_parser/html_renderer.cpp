@@ -1,8 +1,8 @@
 #include "html_renderer.h"
 
 std::string HTMLRenderer::renderHeader() {
-    std::string header = R"!!!(
-<!DOCTYPE html>
+    std::string header = 
+R"!!!(<!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
 <meta charset="UTF-8">
@@ -23,8 +23,7 @@ std::string HTMLRenderer::renderHeader() {
 <span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/circle-half-stroke-solid-full.svg')"></span>
 </button>
 </header>
-<main class="article">
-    )!!!";
+<main class="article">)!!!";
     return header;
 }
 
@@ -39,12 +38,11 @@ std::string HTMLRenderer::renderFooter() {
     // </body>
     // </html>
     // )!!!";
-    std::string footer = R"!!!(
-<script type="module" src="/main.js" defer></script>
+    std::string footer = 
+R"!!!(<script type="module" src="/main.js" defer></script>
 </main>
 </body>
-</html>
-    )!!!";
+</html>)!!!";
     return footer;
 }
 
@@ -53,7 +51,7 @@ std::string HTMLRenderer::renderDocument(cmark_node* doc) {
 
     out += renderHeader();
     out += cmark_render_html(doc, CMARK_OPT_DEFAULT);
-    out += renderHeader();
+    out += renderFooter();
 
     return out;
 }

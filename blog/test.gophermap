@@ -1,0 +1,449 @@
+1Home	/
+i  This website is available in four different formats, across      	fake	(NULL)	0
+ithree protocols. They all have (roughly) the same content, just    	fake	(NULL)	0
+idifferent formating, either for accessibility or because of the    	fake	(NULL)	0
+ilimitations of the transfer protocol. The following versions are   	fake	(NULL)	0
+iavailable:                                                         	fake	(NULL)	0
+i	fake	(NULL)	0
+i                        +------------------+                       	fake	(NULL)	0
+i                        | BIG WEB VERSIONS |                       	fake	(NULL)	0
+i                        +------------------+                       	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i  The BIG WEB is the internet through a standard web browser. The  	fake	(NULL)	0
+ivast majority of you are using one of the two versions available   	fake	(NULL)	0
+ion the BIG WEB (if all this talk about protocols is gibberish to   	fake	(NULL)	0
+iyou, you're using one of these). Personally I prefer the           	fake	(NULL)	0
+isimplicity of the lite version for blog reading, but the main      	fake	(NULL)	0
+iversion has some fun JS components/animations, it's a better       	fake	(NULL)	0
+ishowcase of my programming.                                        	fake	(NULL)	0
+i	fake	(NULL)	0
+i    HTTP(S)	fake	(NULL)	0
+i    -------	fake	(NULL)	0
+i      - https://fatcullen.com                                      	fake	(NULL)	0
+i        Main version, built with NextJS                            	fake	(NULL)	0
+i      - https://lite.fatcullen.com                                 	fake	(NULL)	0
+i        Lite version, at the `lite.` subdomain                     	fake	(NULL)	0
+i        Basic HTML + CSS, without all the fancy React              	fake	(NULL)	0
+i        components                                                 	fake	(NULL)	0
+i          Optimized for viewing with JS off, or through a text     	fake	(NULL)	0
+i        based web browser                                          	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+h"https://fatcullen.com"	URL:https://fatcullen.com	localhost	70
+h"https://lite.fatcullen.com"	URL:https://lite.fatcullen.com	localhost	70
+i                       +--------------------+                      	fake	(NULL)	0
+i                       | SMALL WEB VERSIONS |                      	fake	(NULL)	0
+i                       +--------------------+                      	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i  The small web uses protocols other than HTTP(S). You'll need a   	fake	(NULL)	0
+ispecialized browser to access these pages (I recommend Lagrange).  	fake	(NULL)	0
+iThese protocols only have a few hundred or a couple thousand       	fake	(NULL)	0
+iservers total, which is tiny, and the transfer formats have heavy  	fake	(NULL)	0
+ilimitations. In return though, you get NO ads, NO pop-ups, NO      	fake	(NULL)	0
+itracking, and a guarantee everything is made by real passionate    	fake	(NULL)	0
+ipeople. I host on these protocols:                                 	fake	(NULL)	0
+i	fake	(NULL)	0
+h"Lagrange"	URL:https://github.com/skyjake/lagrange	localhost	70
+i     1.   Because it was a fun project to get this website to      	fake	(NULL)	0
+i        build across all these formats.                            	fake	(NULL)	0
+i     2.   Because I love using the small web and wanted to add     	fake	(NULL)	0
+i        to it! Sifting through the current sea of slop             	fake	(NULL)	0
+i        articles to find good content is getting tiring, and       	fake	(NULL)	0
+i        browsing these protocols is a way to avoid that. I         	fake	(NULL)	0
+i        encourage you to try these formats out.                    	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i    Gemini	fake	(NULL)	0
+i    ------	fake	(NULL)	0
+i  Project Gemini is a newer protocol, created in 2019, with the    	fake	(NULL)	0
+igoal of being a more modern small web format. Websites are written 	fake	(NULL)	0
+iin the Gemtext format, sort of like an improved Markdown. This     	fake	(NULL)	0
+ilets them look better than Gopher sites, while still keeping that  	fake	(NULL)	0
+ismall web simplicity. You can find the site hosted in Geminispace  	fake	(NULL)	0
+iat its standard URL:                                               	fake	(NULL)	0
+i	fake	(NULL)	0
+h"Project Gemini"	URL:https://geminiprotocol.net/	localhost	70
+i      - gemini://fatcullen.com                                     	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+h"gemini://fatcullen.com"	URL:gemini://fatcullen.com	localhost	70
+i	fake	(NULL)	0
+IBadge reading 'free, best viewed on the gemini protocol'	../../images/website/gemini-protocol.png	localhost	70
+i    Gopher	fake	(NULL)	0
+i    ------	fake	(NULL)	0
+i  The Gopher protocol was an early alternative to HTTP, which fell 	fake	(NULL)	0
+iinto obscurity (think Betamax vs. VHS). It's effectivley the       	fake	(NULL)	0
+ipredecessor to the modern World Wide Web. Pages have a very basic  	fake	(NULL)	0
+imenu-style layout, just plain text and links. You can find the     	fake	(NULL)	0
+isite hosted in Gopherspace at its standard URL:                    	fake	(NULL)	0
+i	fake	(NULL)	0
+h"The Gopher protocol"	URL:https://commons.lib.jmu.edu/cgi/viewcontent.cgi?article=1196&context=selectedworks	localhost	70
+h"Betamax vs. VHS"	URL:https://en.wikipedia.org/w/index.php?title=Videotape_format_war&oldid=1343706489	localhost	70
+i      - gopher://fatcullen.com                                     	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+h"gopher://fatcullen.com"	URL:gopher://fatcullen.com	localhost	70
+i	fake	(NULL)	0
+ISurf the Internet with Gopher t-shirt graphic	../../images/website/gopher-protocol.png	localhost	70
+i                        +------------------+                       	fake	(NULL)	0
+i                        | Markdown: Syntax |                       	fake	(NULL)	0
+i                        +------------------+                       	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i      - Overview                                                   	fake	(NULL)	0
+i          - Philosophy                                             	fake	(NULL)	0
+i          - Inline HTML                                            	fake	(NULL)	0
+i          - Automatic Escaping for Special Characters              	fake	(NULL)	0
+i      - Block Elements                                             	fake	(NULL)	0
+i          - Paragraphs and Line Breaks                             	fake	(NULL)	0
+i          - Headers                                                	fake	(NULL)	0
+i          - Blockquotes                                            	fake	(NULL)	0
+i          - Lists                                                  	fake	(NULL)	0
+i          - Code Blocks                                            	fake	(NULL)	0
+i          - Horizontal Rules                                       	fake	(NULL)	0
+i      - Span Elements                                              	fake	(NULL)	0
+i          - Links                                                  	fake	(NULL)	0
+i          - Emphasis                                               	fake	(NULL)	0
+i          - Code                                                   	fake	(NULL)	0
+i          - Images                                                 	fake	(NULL)	0
+i      - Miscellaneous                                              	fake	(NULL)	0
+i          - Backslash Escapes                                      	fake	(NULL)	0
+i          - Automatic Links                                        	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+h"Overview"	URL:#overview	localhost	70
+h"Philosophy"	URL:#philosophy	localhost	70
+h"Inline HTML"	URL:#html	localhost	70
+h"Automatic Escaping for Special Characters"	URL:#autoescape	localhost	70
+h"Block Elements"	URL:#block	localhost	70
+h"Paragraphs and Line Breaks"	URL:#p	localhost	70
+h"Headers"	URL:#header	localhost	70
+h"Blockquotes"	URL:#blockquote	localhost	70
+h"Lists"	URL:#list	localhost	70
+h"Code Blocks"	URL:#precode	localhost	70
+h"Horizontal Rules"	URL:#hr	localhost	70
+h"Span Elements"	URL:#span	localhost	70
+h"Links"	URL:#link	localhost	70
+h"Emphasis"	URL:#em	localhost	70
+h"Code"	URL:#code	localhost	70
+h"Images"	URL:#img	localhost	70
+h"Miscellaneous"	URL:#misc	localhost	70
+h"Backslash Escapes"	URL:#backslash	localhost	70
+h"Automatic Links"	URL:#autolink	localhost	70
+i  NOTE: This document is itself written using Markdown; you can    	fake	(NULL)	0
+isee the source for it by adding '.text' to the URL.                	fake	(NULL)	0
+i	fake	(NULL)	0
+h"see the source for it by adding '.text' to the URL"	URL:/projects/markdown/syntax.text	localhost	70
+iO=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O=O	fake	(NULL)	0
+i    Overview	fake	(NULL)	0
+i    --------	fake	(NULL)	0
+i    Philosophy	fake	(NULL)	0
+i    ----------	fake	(NULL)	0
+i  Markdown is intended to be as easy-to-read and easy-to-write as  	fake	(NULL)	0
+iis feasible.                                                       	fake	(NULL)	0
+i	fake	(NULL)	0
+i  Readability, however, is emphasized above all else. A            	fake	(NULL)	0
+iMarkdown-formatted document should be publishable as-is, as plain  	fake	(NULL)	0
+itext, without looking like it's been marked up with tags or        	fake	(NULL)	0
+iformatting instructions. While Markdown's syntax has been          	fake	(NULL)	0
+iinfluenced by several existing text-to-HTML filters -- including   	fake	(NULL)	0
+iSetext, atx, Textile, reStructuredText, Grutatext, and EtText --   	fake	(NULL)	0
+ithe single biggest source of inspiration for Markdown's syntax is  	fake	(NULL)	0
+ithe format of plain text email.                                    	fake	(NULL)	0
+i	fake	(NULL)	0
+h"Setext"	URL:http://docutils.sourceforge.net/mirror/setext.html	localhost	70
+h"atx"	URL:http://www.aaronsw.com/2002/atx/	localhost	70
+h"Textile"	URL:http://textism.com/tools/textile/	localhost	70
+h"reStructuredText"	URL:http://docutils.sourceforge.net/rst.html	localhost	70
+h"Grutatext"	URL:http://www.triptico.com/software/grutatxt.html	localhost	70
+h"EtText"	URL:http://ettext.taint.org/doc/	localhost	70
+i    Block Elements	fake	(NULL)	0
+i    --------------	fake	(NULL)	0
+i    Paragraphs and Line Breaks	fake	(NULL)	0
+i    --------------------------	fake	(NULL)	0
+i  A paragraph is simply one or more consecutive lines of text,     	fake	(NULL)	0
+iseparated by one or more blank lines. (A blank line is any line    	fake	(NULL)	0
+ithat looks like a blank line -- a line containing nothing but      	fake	(NULL)	0
+ispaces or tabs is considered blank.) Normal paragraphs should not  	fake	(NULL)	0
+ibe indented with spaces or tabs.                                   	fake	(NULL)	0
+i	fake	(NULL)	0
+i  The implication of the "one or more consecutive lines of text"   	fake	(NULL)	0
+irule is that Markdown supports "hard-wrapped" text paragraphs.     	fake	(NULL)	0
+iThis differs significantly from most other text-to-HTML formatters 	fake	(NULL)	0
+i(including Movable Type's "Convert Line Breaks" option) which      	fake	(NULL)	0
+itranslate every line break character in a paragraph into a `<br    	fake	(NULL)	0
+i/>` tag.                                                           	fake	(NULL)	0
+i	fake	(NULL)	0
+i  When you do want to insert a `<br />` break tag using Markdown,  	fake	(NULL)	0
+iyou end a line with two or more spaces, then type return.          	fake	(NULL)	0
+i	fake	(NULL)	0
+i    Headers	fake	(NULL)	0
+i    -------	fake	(NULL)	0
+i  Markdown supports two styles of headers, [Setext] [1] and [atx]  	fake	(NULL)	0
+i[2].                                                               	fake	(NULL)	0
+i	fake	(NULL)	0
+i  Optionally, you may "close" atx-style headers. This is purely    	fake	(NULL)	0
+icosmetic -- you can use this if you think it looks better. The     	fake	(NULL)	0
+iclosing hashes don't even need to match the number of hashes used  	fake	(NULL)	0
+ito open the header. (The number of opening hashes determines the   	fake	(NULL)	0
+iheader level.)                                                     	fake	(NULL)	0
+i	fake	(NULL)	0
+i    Blockquotes	fake	(NULL)	0
+i    -----------	fake	(NULL)	0
+i  Markdown uses email-style `>` characters for blockquoting. If    	fake	(NULL)	0
+iyou're familiar with quoting passages of text in an email message, 	fake	(NULL)	0
+ithen you know how to create a blockquote in Markdown. It looks     	fake	(NULL)	0
+ibest if you hard wrap the text and put a `>` before every line:    	fake	(NULL)	0
+i	fake	(NULL)	0
+i     |    This is a blockquote with two paragraphs. Lorem ipsum    	fake	(NULL)	0
+i     |  dolor sit amet, consectetuer adipiscing elit. Aliquam      	fake	(NULL)	0
+i     |  hendrerit mi posuere lectus. Vestibulum enim wisi,         	fake	(NULL)	0
+i     |  viverra nec, fringilla in, laoreet vitae, risus.           	fake	(NULL)	0
+i     |                                                             	fake	(NULL)	0
+i     |    Donec sit amet nisl. Aliquam semper ipsum sit amet       	fake	(NULL)	0
+i     |  velit. Suspendisse id sem consectetuer libero luctus       	fake	(NULL)	0
+i     |  adipiscing.                                                	fake	(NULL)	0
+i     |                                                             	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i  Markdown allows you to be lazy and only put the `>` before the   	fake	(NULL)	0
+ifirst line of a hard-wrapped paragraph:                            	fake	(NULL)	0
+i	fake	(NULL)	0
+i     |    This is a blockquote with two paragraphs. Lorem ipsum    	fake	(NULL)	0
+i     |  dolor sit amet, consectetuer adipiscing elit. Aliquam      	fake	(NULL)	0
+i     |  hendrerit mi posuere lectus. Vestibulum enim wisi,         	fake	(NULL)	0
+i     |  viverra nec, fringilla in, laoreet vitae, risus.           	fake	(NULL)	0
+i     |                                                             	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i     |    Donec sit amet nisl. Aliquam semper ipsum sit amet       	fake	(NULL)	0
+i     |  velit. Suspendisse id sem consectetuer libero luctus       	fake	(NULL)	0
+i     |  adipiscing.                                                	fake	(NULL)	0
+i     |                                                             	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i  Blockquotes can be nested (i.e. a blockquote-in-a-blockquote) by 	fake	(NULL)	0
+iadding additional levels of `>`:                                   	fake	(NULL)	0
+i	fake	(NULL)	0
+i     |  This is the first level of quoting.                        	fake	(NULL)	0
+i     |                                                             	fake	(NULL)	0
+i     |   |  This is nested blockquote.                             	fake	(NULL)	0
+i     |   |                                                         	fake	(NULL)	0
+i     |                                                             	fake	(NULL)	0
+i     |  Back to the first level.                                   	fake	(NULL)	0
+i     |                                                             	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i  Blockquotes can contain other Markdown elements, including       	fake	(NULL)	0
+iheaders, lists, and code blocks:                                   	fake	(NULL)	0
+i	fake	(NULL)	0
+i     |      This is a header.                                      	fake	(NULL)	0
+i     |      -----------------                                      	fake	(NULL)	0
+i     |                                                             	fake	(NULL)	0
+i     |   1. This is the first list item.                           	fake	(NULL)	0
+i     |   2. This is the second list item.                          	fake	(NULL)	0
+i     |                                                             	fake	(NULL)	0
+i     |  Here's some example code:                                  	fake	(NULL)	0
+i     |                                                             	fake	(NULL)	0
+i     |  +------------------------------------------------------+   	fake	(NULL)	0
+i     |  | return shell_exec("echo $input |                     |   	fake	(NULL)	0
+i     |  | $markdown_script");                                  |   	fake	(NULL)	0
+i     |  +------------------------------------------------------+   	fake	(NULL)	0
+i     |                                                             	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i  Any decent text editor should make email-style quoting easy. For 	fake	(NULL)	0
+iexample, with BBEdit, you can make a selection and choose Increase 	fake	(NULL)	0
+iQuote Level from the Text menu.                                    	fake	(NULL)	0
+i	fake	(NULL)	0
+i    Lists	fake	(NULL)	0
+i    -----	fake	(NULL)	0
+i  Markdown supports ordered (numbered) and unordered (bulleted)    	fake	(NULL)	0
+ilists.                                                             	fake	(NULL)	0
+i	fake	(NULL)	0
+i  Unordered lists use asterisks, pluses, and hyphens --            	fake	(NULL)	0
+iinterchangably -- as list markers:                                 	fake	(NULL)	0
+i	fake	(NULL)	0
+i      - Red                                                        	fake	(NULL)	0
+i      - Green                                                      	fake	(NULL)	0
+i      - Blue                                                       	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+iis equivalent to:                                                  	fake	(NULL)	0
+i	fake	(NULL)	0
+i      - Red                                                        	fake	(NULL)	0
+i      - Green                                                      	fake	(NULL)	0
+i      - Blue                                                       	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+iand:                                                               	fake	(NULL)	0
+i	fake	(NULL)	0
+i      - Red                                                        	fake	(NULL)	0
+i      - Green                                                      	fake	(NULL)	0
+i      - Blue                                                       	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+iOrdered lists use numbers followed by periods:                     	fake	(NULL)	0
+i	fake	(NULL)	0
+i     1. Bird                                                       	fake	(NULL)	0
+i     2. McHale                                                     	fake	(NULL)	0
+i     3. Parish                                                     	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i  It's important to note that the actual numbers you use to mark   	fake	(NULL)	0
+ithe list have no effect on the HTML output Markdown produces. The  	fake	(NULL)	0
+iHTML Markdown produces from the above list is:                     	fake	(NULL)	0
+i	fake	(NULL)	0
+iIf you instead wrote the list in Markdown like this:               	fake	(NULL)	0
+i	fake	(NULL)	0
+i     1. Bird                                                       	fake	(NULL)	0
+i     2. McHale                                                     	fake	(NULL)	0
+i     3. Parish                                                     	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+ior even:                                                           	fake	(NULL)	0
+i	fake	(NULL)	0
+i     3. Bird                                                       	fake	(NULL)	0
+i     4. McHale                                                     	fake	(NULL)	0
+i     5. Parish                                                     	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i  you'd get the exact same HTML output. The point is, if you want  	fake	(NULL)	0
+ito, you can use ordinal numbers in your ordered Markdown lists, so 	fake	(NULL)	0
+ithat the numbers in your source match the numbers in your          	fake	(NULL)	0
+ipublished HTML. But if you want to be lazy, you don't have to.     	fake	(NULL)	0
+i	fake	(NULL)	0
+iTo make lists look nice, you can wrap items with hanging indents:  	fake	(NULL)	0
+i	fake	(NULL)	0
+i      -   Lorem ipsum dolor sit amet, consectetuer adipiscing      	fake	(NULL)	0
+i        elit. Aliquam hendrerit mi posuere lectus. Vestibulum      	fake	(NULL)	0
+i        enim wisi, viverra nec, fringilla in, laoreet vitae,       	fake	(NULL)	0
+i        risus.                                                     	fake	(NULL)	0
+i      -   Donec sit amet nisl. Aliquam semper ipsum sit amet       	fake	(NULL)	0
+i        velit. Suspendisse id sem consectetuer libero luctus       	fake	(NULL)	0
+i        adipiscing.                                                	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+iBut if you want to be lazy, you don't have to:                     	fake	(NULL)	0
+i	fake	(NULL)	0
+i      -   Lorem ipsum dolor sit amet, consectetuer adipiscing      	fake	(NULL)	0
+i        elit. Aliquam hendrerit mi posuere lectus. Vestibulum      	fake	(NULL)	0
+i        enim wisi, viverra nec, fringilla in, laoreet vitae,       	fake	(NULL)	0
+i        risus.                                                     	fake	(NULL)	0
+i      -   Donec sit amet nisl. Aliquam semper ipsum sit amet       	fake	(NULL)	0
+i        velit. Suspendisse id sem consectetuer libero luctus       	fake	(NULL)	0
+i        adipiscing.                                                	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i  List items may consist of multiple paragraphs. Each subsequent   	fake	(NULL)	0
+iparagraph in a list item must be indented by either 4 spaces or    	fake	(NULL)	0
+ione tab:                                                           	fake	(NULL)	0
+i	fake	(NULL)	0
+i     1.   This is a list item with two paragraphs. Lorem ipsum     	fake	(NULL)	0
+i        dolor sit amet, consectetuer adipiscing elit. Aliquam      	fake	(NULL)	0
+i        hendrerit mi posuere lectus.                               	fake	(NULL)	0
+i          Vestibulum enim wisi, viverra nec, fringilla in,         	fake	(NULL)	0
+i        laoreet vitae, risus. Donec sit amet nisl. Aliquam         	fake	(NULL)	0
+i        semper ipsum sit amet velit.                               	fake	(NULL)	0
+i     2.   Suspendisse id sem consectetuer libero luctus            	fake	(NULL)	0
+i        adipiscing.                                                	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i  It looks nice if you indent every line of the subsequent         	fake	(NULL)	0
+iparagraphs, but here again, Markdown will allow you to be lazy:    	fake	(NULL)	0
+i	fake	(NULL)	0
+i      - This is a list item with two paragraphs.                   	fake	(NULL)	0
+i          This is the second paragraph in the list item. You're    	fake	(NULL)	0
+i        only required to indent the first line. Lorem ipsum        	fake	(NULL)	0
+i        dolor sit amet, consectetuer adipiscing elit.              	fake	(NULL)	0
+i      - Another item in the same list.                             	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i  To put a blockquote within a list item, the blockquote's `>`     	fake	(NULL)	0
+idelimiters need to be indented:                                    	fake	(NULL)	0
+i	fake	(NULL)	0
+i      - A list item with a blockquote:                             	fake	(NULL)	0
+i         |  This is a blockquote inside a list item.               	fake	(NULL)	0
+i         |                                                         	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i  To put a code block within a list item, the code block needs to  	fake	(NULL)	0
+ibe indented twice -- 8 spaces or two tabs:                         	fake	(NULL)	0
+i	fake	(NULL)	0
+i      - A list item with a code block:                             	fake	(NULL)	0
+i        +------------------------------------------------------+   	fake	(NULL)	0
+i        | <code goes here>                                     |   	fake	(NULL)	0
+i        +------------------------------------------------------+   	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i    Code Blocks	fake	(NULL)	0
+i    -----------	fake	(NULL)	0
+i  Pre-formatted code blocks are used for writing about programming 	fake	(NULL)	0
+ior markup source code. Rather than forming normal paragraphs, the  	fake	(NULL)	0
+ilines of a code block are interpreted literally. Markdown wraps a  	fake	(NULL)	0
+icode block in both `<pre>` and `<code>` tags.                      	fake	(NULL)	0
+i	fake	(NULL)	0
+i  To produce a code block in Markdown, simply indent every line of 	fake	(NULL)	0
+ithe block by at least 4 spaces or 1 tab.                           	fake	(NULL)	0
+i	fake	(NULL)	0
+iThis is a normal paragraph:                                        	fake	(NULL)	0
+i	fake	(NULL)	0
+i    +----------------------------------------------------------+   	fake	(NULL)	0
+i    | This is a code block.                                    |   	fake	(NULL)	0
+i    +----------------------------------------------------------+   	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+iHere is an example of AppleScript:                                 	fake	(NULL)	0
+i	fake	(NULL)	0
+i    +----------------------------------------------------------+   	fake	(NULL)	0
+i    | tell application "Foo"                                   |   	fake	(NULL)	0
+i    | beep                                                     |   	fake	(NULL)	0
+i    | end tell                                                 |   	fake	(NULL)	0
+i    +----------------------------------------------------------+   	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i  A code block continues until it reaches a line that is not       	fake	(NULL)	0
+iindented (or the end of the article).                              	fake	(NULL)	0
+i	fake	(NULL)	0
+i  Within a code block, ampersands (`&`) and angle brackets (`<`    	fake	(NULL)	0
+iand `>`) are automatically converted into HTML entities. This      	fake	(NULL)	0
+imakes it very easy to include example HTML source code using       	fake	(NULL)	0
+iMarkdown -- just paste it and indent it, and Markdown will handle  	fake	(NULL)	0
+ithe hassle of encoding the ampersands and angle brackets. For      	fake	(NULL)	0
+iexample, this:                                                     	fake	(NULL)	0
+i	fake	(NULL)	0
+i    +----------------------------------------------------------+   	fake	(NULL)	0
+i    | <div class="footer">                                     |   	fake	(NULL)	0
+i    | &copy; 2004 Foo Corporation                              |   	fake	(NULL)	0
+i    | </div>                                                   |   	fake	(NULL)	0
+i    +----------------------------------------------------------+   	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i  Regular Markdown syntax is not processed within code blocks.     	fake	(NULL)	0
+iE.g., asterisks are just literal asterisks within a code block.    	fake	(NULL)	0
+iThis means it's also easy to use Markdown to write about           	fake	(NULL)	0
+iMarkdown's own syntax.                                             	fake	(NULL)	0
+i	fake	(NULL)	0
+i    +----------------------------------------------------------+   	fake	(NULL)	0
+i    | tell application "Foo"                                   |   	fake	(NULL)	0
+i    | beep                                                     |   	fake	(NULL)	0
+i    | end tell                                                 |   	fake	(NULL)	0
+i    +----------------------------------------------------------+   	fake	(NULL)	0
+i                                                                   	fake	(NULL)	0
+i    Span Elements	fake	(NULL)	0
+i    -------------	fake	(NULL)	0
+i    Links	fake	(NULL)	0
+i    -----	fake	(NULL)	0
+iMarkdown supports two style of links: inline and reference.        	fake	(NULL)	0
+i	fake	(NULL)	0
+iIn both styles, the link text is delimited by [square brackets].   	fake	(NULL)	0
+i	fake	(NULL)	0
+i  To create an inline link, use a set of regular parentheses       	fake	(NULL)	0
+iimmediately after the link text's closing square bracket. Inside   	fake	(NULL)	0
+ithe parentheses, put the URL where you want the link to point,     	fake	(NULL)	0
+ialong with an optional title for the link, surrounded in quotes.   	fake	(NULL)	0
+iFor example:                                                       	fake	(NULL)	0
+i	fake	(NULL)	0
+iThis is an example inline link.                                    	fake	(NULL)	0
+i	fake	(NULL)	0
+h"an example"	URL:http://example.com/	localhost	70
+iThis link has no title attribute.                                  	fake	(NULL)	0
+i	fake	(NULL)	0
+h"This link"	URL:http://example.net/	localhost	70
+i    Emphasis	fake	(NULL)	0
+i    --------	fake	(NULL)	0
+i  Markdown treats asterisks (`*`) and underscores (`_`) as         	fake	(NULL)	0
+iindicators of emphasis. Text wrapped with one `*` or `_` will be   	fake	(NULL)	0
+iwrapped with an HTML `<em>` tag; double `*`'s or `_`'s will be     	fake	(NULL)	0
+iwrapped with an HTML `<strong>` tag. E.g., this input:             	fake	(NULL)	0
+i	fake	(NULL)	0
+isingle asterisks                                                   	fake	(NULL)	0
+i	fake	(NULL)	0
+isingle underscores                                                 	fake	(NULL)	0
+i	fake	(NULL)	0
+iDOUBLE ASTERISKS                                                   	fake	(NULL)	0
+i	fake	(NULL)	0
+iDOUBLE UNDERSCORES                                                 	fake	(NULL)	0
+i	fake	(NULL)	0
+i    Code	fake	(NULL)	0
+i    ----	fake	(NULL)	0
+i  To indicate a span of code, wrap it with backtick quotes (```).  	fake	(NULL)	0
+iUnlike a pre-formatted code block, a code span indicates code      	fake	(NULL)	0
+iwithin a normal paragraph. For example:                            	fake	(NULL)	0
+i	fake	(NULL)	0
+iUse the `printf()` function.                                       	fake	(NULL)	0
+i	fake	(NULL)	0

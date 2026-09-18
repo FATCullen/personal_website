@@ -1,1 +1,0 @@
-React, Spring, SQL, Docker, Flask, AWS, ROS

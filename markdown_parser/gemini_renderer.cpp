@@ -171,7 +171,7 @@ std::string GeminiRenderer::renderDocument(cmark_node* doc) {
         out += flushText(r.text);
         out += flushLinks(r.links);
     }
-    out += renderHeader();
+    out += renderFooter();
 
     return out;
 }

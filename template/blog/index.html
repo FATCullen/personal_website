@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" class="" data-theme="light">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blog — FATCullen</title>
+    <script>document.documentElement.classList.remove('no-js');</script>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/blog/blog.css">
+  </head>
+  <body class="scrollable has-fixed-header">
+
+    <header class="blog-header">
+      <nav class="blog-header__nav">
+        <a href="/blog/" class="blog-header__link" aria-current="page">Blog</a>
+        <a href="/" class="blog-header__link">Portfolio</a>
+      </nav>
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark mode" aria-pressed="true">
+        <span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/circle-half-stroke-solid-full.svg')"></span>
+      </button>
+    </header>
+
+    <main class="blog-page">
+      <h1>Blog</h1>
+
+      <input type="search" id="blog-search" class="blog-search" placeholder="Search posts…" aria-label="Search posts by title or tag">
+
+      <p id="blog-empty" class="blog-empty" hidden="">No posts match your search.</p>
+
+      <ul class="post-list" id="post-list">
+        <li class="post-item" data-title="On writing small tools" data-tags="dev notes" data-date="2026-08-14">
+          <a href="/blog/test.html">
+            <span class="post-item__date">Aug 14, 2026</span>
+            <span class="post-item__title">Test</span>
+            <span class="post-item__tags">
+              <span class="tag">dev</span>
+              <span class="tag">notes</span>
+            </span>
+          </a>
+        </li>
+
+        <li class="post-item" data-title="A slower kind of project" data-tags="projects reflection" data-date="2026-07-02">
+          <a href="/blog/a-slower-kind-of-project.html">
+            <span class="post-item__date">Jul 2, 2026</span>
+            <span class="post-item__title">A slower kind of project</span>
+            <span class="post-item__tags">
+              <span class="tag">projects</span>
+              <span class="tag">reflection</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </main>
+
+    <script type="module" src="/main.js" defer=""></script>
+  </body>
+</html>
