@@ -106,10 +106,10 @@ const extern std::vector<WebBadge> WEB_BADGES = {
         "/images/webbadges/webring.png",
         "https://se-webring.xyz",
     },
-    {
-        "/images/webbadges/rss.png",
-        "/",
-    },
+    // {
+    //     "/images/webbadges/rss.png",
+    //     "/",
+    // },
     {
         "/images/webbadges/github.png",
         "https://github.com/FATCullen",
@@ -122,23 +122,23 @@ const extern std::vector<WebBadge> WEB_BADGES = {
         "/images/webbadges/email.png",
         "mailto:fatcullen2@gmail.com",
     },
-    {
-        "/images/webbadges/gemini.png",
-        "/",
-    },
-    {
-        "/images/webbadges/gopher.png",
-        "/",
-    },
+    // {
+    //     "/images/webbadges/gemini.png",
+    //     "/",
+    // },
+    // {
+    //     "/images/webbadges/gopher.png",
+    //     "/",
+    // },
 };
 
 const extern std::vector<Blog> BLOGS = {
     {
         "2026-09-21",
-        "Test",
-        "test",
+        "Xiji Island - Test",
+        "xiji_island_test",
         {
-            "Test",
+            "Geography",
         }
     },
 };

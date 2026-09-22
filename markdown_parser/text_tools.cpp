@@ -43,7 +43,7 @@ std::string breakUp(const std::string& text, int width, int indent) {
     if (text.find('\n') != std::string::npos) {
         std::string result;
         for (auto& part : splitLines(text)) result += breakUp(part, width, indent);
-        if (!result.empty()) result.pop_back(); // drop one trailing '\n', mirrors original
+        if (!result.empty()) result.pop_back();
         return result;
     }
 
