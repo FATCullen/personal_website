@@ -11,7 +11,7 @@
 int main(int argc, char* argv[]) {
     assert(argc == 3);
     std::string file_name(argv[1]);
-    std::string out_prefix(argv[2]);
+    std::string out_file(argv[2]);
 
     Filler* filler = nullptr;
 
@@ -29,13 +29,13 @@ int main(int argc, char* argv[]) {
 
     std::ifstream file(file_name);
     if (!file.is_open()) {
-        std::cerr << "Failed to open the file." << std::endl;
+        std::cerr << "Failed to open the input file." << std::endl;
         return 1;
     }
 
-    std::ofstream out(out_prefix + file_name);
+    std::ofstream out(out_file);
     if (!out.is_open()) {
-        std::cerr << "Failed to open the file." << std::endl;
+        std::cerr << "Failed to open the output file." << std::endl;
         return 1;
     }
 

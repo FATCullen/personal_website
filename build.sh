@@ -4,10 +4,11 @@ rm -rf build/*
 cp -r animations build/animations
 cp -r images build/images
 cp -r styling/ build
-cp -r templates/ build
+
+make -C template_filler
 
 while IFS= read -r -d '' file; do
-    echo build"${file#templates}"
+    [ -f "$file" ] && ./template_filler/template_filler "$file" build"${file#templates}"
 done < <(find "templates" -type f -print0)
 
 make -C markdown_parser

@@ -37,7 +37,7 @@ std::string HTMLFiller::fillWebBadges() {
     std::string result = "";
 
     for (WebBadge badge : WEB_BADGES) {
-        result  += "a class=\"badge\" target=\"_blank\" href=\"" + badge.value + "\"><img src=\"" + badge.img + "\"></img></a>\n";
+        result  += "<a class=\"badge\" target=\"_blank\" href=\"" + badge.value + "\"><img src=\"" + badge.img + "\"></img></a>\n";
     }
 
     return result;
@@ -50,7 +50,7 @@ std::string HTMLFiller::fillBlogs() {
         result += "<li class=\"post-item\" data-title=\"" + blog.title + "\" data-tags=\"";
         for (std::string tag : blog.tags) result += tag + " ";
         result += "\" data-date=\"" + blog.date + "\">\n";
-        result += "<a href=\"/blog/" + blog.file_base + "\">\n";
+        result += "<a href=\"/blog/" + blog.file_base + ".html\">\n";
         result += "<span class=\"post-item__date\">" + blog.date + "</span>\n";
         result += "<span class=\"post-item__title\">" + blog.title + "</span>\n";
         result += "<span class=\"post-item__tags\">\n";

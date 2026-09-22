@@ -24,11 +24,13 @@ void Filler::processFile(std::ifstream& file, std::ofstream& out) {
                 out << fillWorks() + "\n";
             else if (line == "INSERT_WEB_BADGES") 
                 out << fillWebBadges() + "\n";
-            else if (line == "INSERT_BLOG") 
+            else if (line == "INSERT_BLOGS") 
                 out << fillBlogs() + "\n";
         }
         else out << line + "\n";
     }
+
+    out.close();
 }
 
 std::string Filler::fillAboutProfessional() {
