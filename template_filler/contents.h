@@ -26,6 +26,13 @@ struct WebBadge {
     std::string value;
 };
 
+struct Blog {
+    std::string date;
+    std::string title;
+    std::string file_base;
+    std::vector<std::string> tags;
+};
+
 const extern std::string ABOUT_PROFESSIONAL;
 const extern std::string ABOUT_PERSONAL;
 
@@ -40,4 +47,6 @@ const extern std::vector<Project> PROJECTS;
 const extern std::vector<Work> WORKS;
 
 const extern std::vector<WebBadge> WEB_BADGES;
+
+const extern std::vector<Blog> BLOGS;
 

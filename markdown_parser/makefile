@@ -8,7 +8,7 @@ EXECUTABLE = markdown_parser
 all: $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CXX) $(ALIBS) $(CXXFLAGS) -o $@ $^ $(LFLAGS)
+	$(CXX) $(ALIBS) $(CXXFLAGS) -o $@ $^
 
 %.o: %.cpp cmark.h cmark_version.h cmark_export.h gopher_renderer.h text_tools.h gemini_renderer.h html_renderer.h
 	$(CXX) $(CXXFLAGS) -c -o $@ $<

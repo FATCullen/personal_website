@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <cassert>
+#include <sstream>
 #include "cmark.h"
 #include "gopher_renderer.h"
 #include "gemini_renderer.h"

@@ -131,3 +131,14 @@ const extern std::vector<WebBadge> WEB_BADGES = {
         "/",
     },
 };
+
+const extern std::vector<Blog> BLOGS = {
+    {
+        "2026-09-21",
+        "Test",
+        "test",
+        {
+            "Test",
+        }
+    },
+};

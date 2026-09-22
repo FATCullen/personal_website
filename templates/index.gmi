@@ -17,4 +17,4 @@ You can contact me at
 => mailto:fatcullen2@gmail.com fatcullen2@gmail.com
 
 ## BLOG:
-INSERT_BLOG
+INSERT_BLOGS
