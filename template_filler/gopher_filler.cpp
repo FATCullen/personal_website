@@ -1,4 +1,5 @@
 #include <sstream>
+#include <iterator>
 #include "gopher_filler.h"
 #include "contents.h"
 
