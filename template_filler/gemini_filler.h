@@ -3,5 +3,6 @@
 
 class GeminiFiller : public Filler {
 private:
+    // Only overriding blogs for gemini
     std::string fillBlogs() override final;
 };

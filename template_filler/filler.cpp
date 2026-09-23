@@ -3,9 +3,10 @@
 
 void Filler::processFile(std::ifstream& file, std::ofstream& out) {    
     std::string line;
-    std::string prefix = "INSERT_";
+    std::string prefix = "INSERT_"; // Scan each line to see if it starts with INSERT_ (indicating it needs filling)
     while (std::getline(file, line)) {
         if (line.size() >= prefix.size() && line.compare(0, prefix.size(), prefix) == 0){
+            // Identify specific INSERT type, and fill out with appropriate content
             if      (line == "INSERT_ABOUT_PROFESSIONAL") 
                 out << fillAboutProfessional() + "\n";
             else if (line == "INSERT_ABOUT_PERSONAL") 
@@ -33,6 +34,7 @@ void Filler::processFile(std::ifstream& file, std::ofstream& out) {
     out.close();
 }
 
+// Fill with plain string from contents.cpp
 std::string Filler::fillAboutProfessional() {
     return formatText(ABOUT_PROFESSIONAL);
 }
@@ -51,6 +53,8 @@ std::string Filler::fillSkills() {
 std::string Filler::fillGPA() {
     return formatText(GPA);
 }
+
+// Not defined in base (see deriving fillers)
 std::string Filler::fillProjects() {
     return "FILLER FOR THIS WEBSITE FORMAT DOES NOT SUPPORT THIS OPTION";
 }
@@ -64,6 +68,7 @@ std::string Filler::fillBlogs() {
     return "FILLER FOR THIS WEBSITE FORMAT DOES NOT SUPPORT THIS OPTION";
 }
 
+// Return base text (no formatting)
 std::string Filler::formatText(std::string text) {
     return text;
 }

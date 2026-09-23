@@ -1,5 +1,6 @@
 #include "html_renderer.h"
 
+// Boilerplate header (with nav buttons and UI light/dark toggle)
 std::string HTMLRenderer::renderHeader() {
     std::string header = 
 R"!!!(<!DOCTYPE html>
@@ -27,6 +28,7 @@ R"!!!(<!DOCTYPE html>
     return header;
 }
 
+// Boilerplate footer
 std::string HTMLRenderer::renderFooter() {
     // R"!!!(
     // <script type="module" src="/main.js" defer></script>
@@ -46,6 +48,7 @@ R"!!!(<script type="module" src="/main.js" defer></script>
     return footer;
 }
 
+// Uses cmark's built in html renderer
 std::string HTMLRenderer::renderDocument(cmark_node* doc) {
     std::string out;
 

@@ -2,12 +2,15 @@
 #include <algorithm>
 
 namespace {
+// Helper, to remove newlines from a string
 std::string collapseNewlines(std::string s) {
     std::replace(s.begin(), s.end(), '\n', ' ');
     return s;
 }
 }
 
+// Calls render on all children of a node, returns the result
+// Most formatting rules first call this on their own node to get inner content, then apply their own formatting to that
 GemRenderResult GeminiRenderer::renderChildren(cmark_node* node) {
     GemRenderResult out;
     for (cmark_node* c = cmark_node_first_child(node); c; c = cmark_node_next(c)) {
@@ -18,6 +21,7 @@ GemRenderResult GeminiRenderer::renderChildren(cmark_node* node) {
     return out;
 }
 
+// Renders a node, calls a different formatting rule depending on the type of markdown element (via cmark ast)
 GemRenderResult GeminiRenderer::renderNode(cmark_node* node) {
     switch (cmark_node_get_type(node)) {
 
@@ -70,6 +74,7 @@ GemRenderResult GeminiRenderer::renderNode(cmark_node* node) {
     }
 }
 
+// Gemtext allows for # headings, so pass these through as they are in markdown
 GemRenderResult GeminiRenderer::renderHeading(cmark_node* node) {
     // Gemtext only defines #, ##, ### — deeper markdown headings collapse to ###.
     int level = std::min(3, (int)cmark_node_get_heading_level(node));
@@ -79,6 +84,7 @@ GemRenderResult GeminiRenderer::renderHeading(cmark_node* node) {
     return r;
 }
 
+// List uses '* content' format
 GemRenderResult GeminiRenderer::renderList(cmark_node* node) {
     GemRenderResult out;
     for (cmark_node* item = cmark_node_first_child(node); item; item = cmark_node_next(item)) {
@@ -91,6 +97,7 @@ GemRenderResult GeminiRenderer::renderList(cmark_node* node) {
     return out;
 }
 
+// Block quote uses '> content' format
 GemRenderResult GeminiRenderer::renderBlockQuote(cmark_node* node) {
     GemRenderResult out;
     for (cmark_node* c = cmark_node_first_child(node); c; c = cmark_node_next(c)) {
@@ -106,6 +113,7 @@ GemRenderResult GeminiRenderer::renderBlockQuote(cmark_node* node) {
     return out;
 }
 
+// Code blocks are wrapped in triple `
 GemRenderResult GeminiRenderer::renderCodeBlock(cmark_node* node) {
     const char* lit = cmark_node_get_literal(node);
     const char* info = cmark_node_get_fence_info(node);
@@ -118,6 +126,8 @@ GemRenderResult GeminiRenderer::renderCodeBlock(cmark_node* node) {
     return r;
 }
 
+// Link gets added to link list and passed back
+// Allows links to be displayed after content (since inline links aren't allowed)
 GemRenderResult GeminiRenderer::renderLink(cmark_node* node) {
     GemRenderResult r = renderChildren(node);
     const char* url = cmark_node_get_url(node);
@@ -129,6 +139,7 @@ GemRenderResult GeminiRenderer::renderLink(cmark_node* node) {
     return r;
 }
 
+// Adds link to image
 GemRenderResult GeminiRenderer::renderImage(cmark_node* node) {
     GemRenderResult altResult = renderChildren(node);
     std::string alt = altResult.text.empty() ? "Image" : collapseNewlines(altResult.text);
@@ -142,10 +153,12 @@ GemRenderResult GeminiRenderer::renderImage(cmark_node* node) {
     return r;
 }
 
+// No formatting needed for text
 std::string GeminiRenderer::flushText(std::string text) const {
     return text;
 }
 
+// Outputs link list in gemtext '=> link label' format
 std::string GeminiRenderer::flushLinks(const std::vector<GemLink>& links) const {
     std::string out;
     for (auto& l : links)
@@ -154,14 +167,17 @@ std::string GeminiRenderer::flushLinks(const std::vector<GemLink>& links) const 
     return out;
 }
 
+// Button to return to main page
 std::string GeminiRenderer::renderHeader() {
     return "=> / Home\n\n";
 }
-
+// Empty footer
 std::string GeminiRenderer::renderFooter() {
     return "";
 }
 
+// Main entry point, adds defualt header + footer and each fromatted node
+// Links are flushed after each node returns (so for example, after each paragraph)
 std::string GeminiRenderer::renderDocument(cmark_node* doc) {
     std::string out;
 

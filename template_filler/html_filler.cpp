@@ -1,6 +1,7 @@
 #include "html_filler.h"
 #include "contents.h"
 
+// Default HTML templates for each field, populated with info for each item in the lists from contents.cpp
 std::string HTMLFiller::fillProjects() {
     std::string result = "";
 

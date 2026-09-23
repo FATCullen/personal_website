@@ -2,6 +2,8 @@
 #include "text_tools.h"
 #include <cctype>
 
+// Calls render on all children of a node, returns the result
+// Most formatting rules first call this on their own node to get inner content, then apply their own formatting to that
 RenderResult GopherRenderer::renderChildren(cmark_node* node, int subWidth, bool isSub) {
     RenderResult out;
     for (cmark_node* c = cmark_node_first_child(node); c; c = cmark_node_next(c)) {
@@ -12,6 +14,7 @@ RenderResult GopherRenderer::renderChildren(cmark_node* node, int subWidth, bool
     return out;
 }
 
+// Renders a node, calls a different formatting rule depending on the type of markdown element (via cmark ast)
 RenderResult GopherRenderer::renderNode(cmark_node* node, int subWidth, bool isSub) {
     switch (cmark_node_get_type(node)) {
 
@@ -59,6 +62,7 @@ RenderResult GopherRenderer::renderNode(cmark_node* node, int subWidth, bool isS
     }
 }
 
+// indented, and wrap at char limit
 RenderResult GopherRenderer::renderParagraph(cmark_node* node, int subWidth, bool isSub) {
     auto r = renderChildren(node, subWidth, isSub);
     r.text = gtxt::breakUp(r.text, isSub ? subWidth : mainWidth_, 2);
@@ -66,6 +70,7 @@ RenderResult GopherRenderer::renderParagraph(cmark_node* node, int subWidth, boo
     return r;
 }
 
+// Heading, either enderlined or boxed depending on level
 RenderResult GopherRenderer::renderHeading(cmark_node* node) {
     int level = cmark_node_get_heading_level(node);
     RenderResult inner = renderChildren(node, mainWidth_, false);
@@ -81,6 +86,7 @@ RenderResult GopherRenderer::renderHeading(cmark_node* node) {
     return r;
 }
 
+// List, indented with bullet or number before each item
 RenderResult GopherRenderer::renderList(cmark_node* node, int subWidth, bool isSub) {
     bool ordered = cmark_node_get_list_type(node) == CMARK_ORDERED_LIST;
     int index = ordered ? cmark_node_get_list_start(node) : 0;
@@ -104,6 +110,7 @@ RenderResult GopherRenderer::renderList(cmark_node* node, int subWidth, bool isS
     return out;
 }
 
+// Block quote, indented with | along left edge
 RenderResult GopherRenderer::renderBlockQuote(cmark_node* node, int subWidth, bool isSub) {
     RenderResult out;
     for (cmark_node* c = cmark_node_first_child(node); c; c = cmark_node_next(c)) {
@@ -118,6 +125,7 @@ RenderResult GopherRenderer::renderBlockQuote(cmark_node* node, int subWidth, bo
     return out;
 }
 
+// Code block, contained within a box
 RenderResult GopherRenderer::renderCodeBlock(cmark_node* node, int subWidth, bool isSub) {
     const char* lit = cmark_node_get_literal(node);
     RenderResult r;
@@ -130,6 +138,7 @@ RenderResult GopherRenderer::renderCodeBlock(cmark_node* node, int subWidth, boo
     return r;
 }
 
+// Adds a link with html gopher tag
 RenderResult GopherRenderer::renderLink(cmark_node* node, int subWidth, bool isSub) {
     RenderResult r = renderChildren(node, subWidth, isSub);
     const char* url = cmark_node_get_url(node);
@@ -142,6 +151,7 @@ RenderResult GopherRenderer::renderLink(cmark_node* node, int subWidth, bool isS
     return r;
 }
 
+// Adds a link with an image tag
 RenderResult GopherRenderer::renderImage(cmark_node* node) {
     RenderResult altResult = renderChildren(node, mainWidth_, false);
     std::string alt = altResult.text.empty() ? "Image" : altResult.text;
@@ -156,6 +166,7 @@ RenderResult GopherRenderer::renderImage(cmark_node* node) {
     return r;
 }
 
+// Applies default gopher info line formatting to text
 std::string GopherRenderer::flushText(std::string text) const {
     std::string out;
     std::stringstream ss(text);
@@ -169,6 +180,7 @@ std::string GopherRenderer::flushText(std::string text) const {
     return out;
 }
 
+// Outputs links with appropriate tag and port info
 std::string GopherRenderer::flushLinks(const std::vector<GopherLink>& links) const {
     std::string out;
     for (auto& l : links) {
@@ -178,14 +190,16 @@ std::string GopherRenderer::flushLinks(const std::vector<GopherLink>& links) con
     return out;
 }
 
+// Button to return to main page
 std::string GopherRenderer::renderHeader() {
     return "1Home\t/\n";
 }
-
+// Empty footer
 std::string GopherRenderer::renderFooter() {
     return "";
 }
-
+// Main entry point, adds defualt header + footer and each fromatted node
+// Links are flushed after each node returns (so for example, after each paragraph)
 std::string GopherRenderer::renderDocument(cmark_node* doc) {
     std::string out;
 
