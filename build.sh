@@ -3,6 +3,7 @@ rm -rf build/*
 
 cp -r animations build/animations
 cp -r images build/images
+cp -r favicon build/favicon
 cp -r styling/ build
 
 make -C template_filler

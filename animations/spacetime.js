@@ -53,7 +53,7 @@ export default function createAnimation(canvas, colours) {
   }
 
   function buildGrid() {
-    const cellSize = Math.floor(h / GRID_LINE_COUNT);
+    const cellSize = Math.max(1, Math.floor(h / GRID_LINE_COUNT));
     const cols = Math.ceil(w / cellSize) + 2;
     const rows = Math.ceil(h / cellSize) + 2;
     grid = [];
@@ -152,6 +152,8 @@ export default function createAnimation(canvas, colours) {
   }
 
   function draw() {
+    if (!deformedGrid.length || !deformedGrid[0]?.length) return;
+
     ctx.fillStyle = colours.bg;
     ctx.fillRect(0, 0, w, h);
     ctx.fillStyle = colours.fg;
@@ -206,9 +208,12 @@ export default function createAnimation(canvas, colours) {
       w = canvas.width = newW;
       h = canvas.height = newH;
 
-      if (w > 0 && h > 0) {
-        initialize();
+      if (w <= 0 || h <= 0) {
+        deformedGrid = [];
+        return;
       }
+
+      initialize();
     },
   };
 }
