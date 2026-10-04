@@ -309,7 +309,7 @@ html:not(.no-js) .js-only { display: flex; }
   font-size: 0.8rem;
 }
 .project-card__links a {
-  color: var(--fg);
+  color: var(--hl);
   text-decoration: underline;
   text-underline-offset: 2px;
 }

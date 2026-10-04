@@ -23,7 +23,7 @@ R"!!!(<!DOCTYPE html>
 <body class="scrollable has-fixed-header">
 <header class="blog-header">
 <nav class="blog-header__nav">
-<a href="/blog/" class="blog-header__link" aria-current="page">Blog</a>
+<a href="/blog/" class="blog-header__link">Blog</a>
 <a href="/" class="blog-header__link">Portfolio</a>
 </nav>
 <button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark mode" aria-pressed="false" disabled>
