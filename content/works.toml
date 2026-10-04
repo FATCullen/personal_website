@@ -1,0 +1,23 @@
+[[works]]
+image = "/images/logos/nokia.svg"
+title = "DSP Firmware Engineer - Nokia"
+dates = "Fall 2026"
+description = "Working on DSP SDK for pluggable optical engines"
+
+[[works]]
+image = "/images/logos/brainridge.svg"
+title = "Software Engineering Consultant - BrainRidge"
+dates = "Winter 2026"
+description = "FinTech apps for companies including BMO and Interac"
+
+[[works]]
+image = "/images/logos/fencesee.svg"
+title = "Full Stack Developer - FenceSee"
+dates = "Summer 2025"
+description = "Built SaaS for planning fencing jobs"
+
+[[works]]
+image = "/images/logos/mina.svg"
+title = "Research Assistant - MiNa Labs"
+dates = "Summer 2023"
+description = "University of Victoria microfluidics and nanotech lab"

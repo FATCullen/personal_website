@@ -1,6 +1,6 @@
 .DS_Store
 *.o
-/markdown_parser/markdown_parser
-/tmp
-/build/*
-/template_filler/template_filler
+/build
+/build_programs/markdown_parser/markdown_parser
+/build_programs/cmark/build
+/build_programs/template_filler/template_filler

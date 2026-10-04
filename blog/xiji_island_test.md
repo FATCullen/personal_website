@@ -1,4 +1,12 @@
++++
+title = "Xiji Island - Test"
+date = "2026-09-21"
+[[tags]]
+tag = "Geography"
++++
+
 # N Island Facts - Xiji Island
+
 This file is intended as a test of the markdown parsing system I've built for my blog.  The content is a copy of my latest "*N Island Facts*" entry, which is a running series I publish biweekly in [math**NEWS**](https://mathnews.uwaterloo.ca/), one of my school's student newspapers.  Past issues can be found in every article going back to Fall 2025, and going forwards for the forseable future!
 
 ---

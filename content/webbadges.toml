@@ -1,0 +1,27 @@
+[[webbadges]]
+image = "/images/webbadges/webring.png"
+redirect = "https://se-webring.xyz"
+
+# [[webbadges]]
+# image = "/images/webbadges/rss.png"
+# redirect = "/"
+
+[[webbadges]]
+image = "/images/webbadges/github.png"
+redirect = "https://github.com/FATCullen"
+
+[[webbadges]]
+image = "/images/webbadges/linkedin.png"
+redirect = "https://www.linkedin.com/in/finn-cullen-a6a012346/"
+
+[[webbadges]]
+image = "/images/webbadges/email.png"
+redirect = "mailto:fatcullen2@gmail.com"
+
+# [[webbadges]]
+# image = "/images/webbadges/gemini.png"
+# redirect = "/"
+
+# [[webbadges]]
+# image = "/images/webbadges/gopher.png"
+# redirect = "/"

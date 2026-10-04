@@ -1,0 +1,59 @@
+[[projects]]
+title = "WalTer Bot"
+image = "/images/projects/walter.jpg"
+description = "Navigates and captures images from a room full of electronic components, then categorizes them via image processing.  Provides an LLM interface to help you plan hardware projects with the found parts."
+[[projects.links]]
+label = "Demo"
+url = "https://www.youtube.com/watch?v=k7Ha7dAPiZ8"
+[[projects.links]]
+label = "DevPost"
+url = "https://devpost.com/software/walter-your-everyday-inventory-companion"
+
+[[projects]]
+title = "Debug Debacle"
+image = "/images/projects/debacle.jpg"
+description = "Multiplayer competitive coding game, where users compete to correct bugs in code fastest. Built for MCHacks 2025, winning 3rd place overall."
+[[projects.links]]
+label = "Demo"
+url = "https://debug-debacle.vercel.app/"
+[[projects.links]]
+label = "Source"
+url = "https://github.com/honzikschenk/debug-debacle"
+[[projects.links]]
+label = "DevPost"
+url = "https://devpost.com/software/debug-debacle"
+
+[[projects]]
+title = "PathMaxer"
+image = "/images/projects/pathmaxer.jpg"
+description = "Campus tour guide robot. Users upload class schedule from a smartphone app, and the robot guides them between classes. Uses Dijkstra's algorithm for pathfinding."
+[[projects.links]]
+label = "Demo"
+url = "https://drive.google.com/file/d/1TNJl6DPzvSaDpCO_igs-X81bE8GjgqE4/view"
+
+[[projects]]
+title = "UTRA Hacks Robot"
+image = "/images/projects/utra.jpg"
+description = "Built for UTRA Hacks 2025 \"capture the flag\" style challenges. Lots of struggles with the limited sensor array, and very little sleep, but we pulled through and placed 2nd overall."
+[[projects.links]]
+label = "Source"
+url = "https://github.com/vichua2006/UTRAHack2025/tree/main"
+[[projects.links]]
+label = "DevPost"
+url = "https://devpost.com/software/lebot-james-qgf9kw"
+
+[[projects]]
+title = "Thyone Consulting Website"
+image = "/images/projects/thyone.jpg"
+description = "Freelance web design work for the Thyone Consulting group. React site with a headless CMS for easy content updates."
+[[projects.links]]
+label = "Demo"
+url = "https://thyoneconsulting.com/"
+
+[[projects]]
+title = "3D Graphics Engine"
+image = "/images/projects/threed.jpg"
+description = "For whatever reason I like making 3D renderers, so I've built several.  My latest is written in C++, with OBJ file support, hidden face occlusion, and basic lighting."
+[[projects.links]]
+label = "Source"
+url = "https://github.com/FATCullen/3d_engine_stuff"

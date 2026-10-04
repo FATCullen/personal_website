@@ -1,8 +1,16 @@
 SHELL := /bin/bash
 
 BUILD_DIR := build
-TEMPLATE_FILLER := ./template_filler/template_filler
-MARKDOWN_PARSER := ./markdown_parser/markdown_parser
+BUILD_BLOG_DIR := build/blog
+
+BLOG_DIR := blog
+TEMPLATE_DIR := templates
+CONTENT_DIR := content
+
+TEMPLATE_FILLER_DIR := build_programs/template_filler
+TEMPLATE_FILLER := $(TEMPLATE_FILLER_DIR)/template_filler
+MARKDOWN_PARSER_DIR := build_programs/markdown_parser
+MARKDOWN_PARSER := $(MARKDOWN_PARSER_DIR)/markdown_parser
 
 .PHONY: build clean
 .SILENT: build clean
@@ -14,17 +22,12 @@ build:
 	cp -r images $(BUILD_DIR)/images
 	cp -r favicon $(BUILD_DIR)/favicon
 	cp -r styling/ $(BUILD_DIR)/
-	$(MAKE) -C template_filler
-	while IFS= read -r -d '' file; do \
-		[ -f "$$file" ] && $(TEMPLATE_FILLER) "$$file" "$(BUILD_DIR)$${file#templates}"; \
-	done < <(find templates -type f -print0)
-	$(MAKE) -C markdown_parser
-	for file in blog/*.md; do \
-		[ -f "$$file" ] && $(MARKDOWN_PARSER) "$$file"; \
-		mv "$${file%.*}.html" "$(BUILD_DIR)/$${file%.*}.html"; \
-		mv "$${file%.*}.gmi" "$(BUILD_DIR)/$${file%.*}.gmi"; \
-		mv "$${file%.*}.gophermap" "$(BUILD_DIR)/$${file%.*}.gophermap"; \
-	done
+	$(MAKE) -C $(TEMPLATE_FILLER_DIR)
+	$(TEMPLATE_FILLER) "$(TEMPLATE_DIR)" "$(BUILD_DIR)" "$(CONTENT_DIR)" "$(BLOG_DIR)"
+	$(MAKE) -C $(MARKDOWN_PARSER_DIR)
+	$(MARKDOWN_PARSER) "$(BLOG_DIR)" "$(BUILD_BLOG_DIR)"
 
 clean:
-	rm -rf $(BUILD_DIR)/
+	rm -rf $(BUILD_DIR)
+	$(MAKE) -C $(TEMPLATE_FILLER_DIR) clean
+	$(MAKE) -C $(MARKDOWN_PARSER_DIR) clean

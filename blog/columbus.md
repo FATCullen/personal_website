@@ -1,3 +1,12 @@
++++
+title = "Columbus"
+date = "2026-10-03"
+[[tags]]
+tag = "Unfinished"
++++
+
+# Placeholder
+
 On October 12, 1492, Cristopher Columbus landed in the new world. To put it lightly, this ended up being a **pretty big deal**. The European *"discovery"* of the Americas kicked off centuries of westward exploration and colonization; It's sometimes considered to be the start of the "modern era."
 
 So, considering the vast historical impact, you may be shocked to learn that we have no idea *where* he landed.

@@ -33,7 +33,7 @@
   color: var(--hl);
   text-underline-offset: 2px;
 }
-.article a:hover { color: var(--hl-alt); }
+.article a:hover { color: var(--alt-hl); }
 
 .article strong { font-weight: 700; }
 .article em { font-style: italic; }
