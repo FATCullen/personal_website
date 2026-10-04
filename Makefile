@@ -1,5 +1,8 @@
 SHELL := /bin/bash
 
+DEPLOY_HOST := personal_website
+DEPLOY_DIR := /var/www/site
+
 BUILD_DIR := build
 BUILD_BLOG_DIR := build/blog
 
@@ -12,7 +15,7 @@ TEMPLATE_FILLER := $(TEMPLATE_FILLER_DIR)/template_filler
 MARKDOWN_PARSER_DIR := build_programs/markdown_parser
 MARKDOWN_PARSER := $(MARKDOWN_PARSER_DIR)/markdown_parser
 
-.PHONY: build clean
+.PHONY: build test-deploy deploy clean
 .SILENT: build clean
 
 build:
@@ -26,6 +29,12 @@ build:
 	$(TEMPLATE_FILLER) "$(TEMPLATE_DIR)" "$(BUILD_DIR)" "$(CONTENT_DIR)" "$(BLOG_DIR)"
 	$(MAKE) -C $(MARKDOWN_PARSER_DIR)
 	$(MARKDOWN_PARSER) "$(BLOG_DIR)" "$(BUILD_BLOG_DIR)"
+
+test-deploy: build
+	rsync -avzn --delete $(BUILD_DIR)/ $(DEPLOY_HOST):$(DEPLOY_DIR)/
+
+deploy:
+	rsync -avz --delete $(BUILD_DIR)/ $(DEPLOY_HOST):$(DEPLOY_DIR)/
 
 clean:
 	rm -rf $(BUILD_DIR)
