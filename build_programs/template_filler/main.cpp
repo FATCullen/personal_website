@@ -7,6 +7,7 @@
 #include "html_filler.h"
 #include "gemini_filler.h"
 #include "gopher_filler.h"
+#include "rss_filler.h"
 
 namespace fs = std::filesystem;
 
@@ -21,6 +22,7 @@ static std::unique_ptr<Filler> makeFiller(const std::string& name, const Content
     if (endsWith(name, "html"))      return std::make_unique<HTMLFiller>(content);
     if (endsWith(name, "gmi"))       return std::make_unique<GeminiFiller>(content);
     if (endsWith(name, "gophermap")) return std::make_unique<GopherFiller>(content);
+    if (endsWith(name, "xml"))       return std::make_unique<RSSFiller>(content);
     return nullptr;
 }
 

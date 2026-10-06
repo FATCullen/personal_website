@@ -21,6 +21,7 @@ protected:
     virtual std::string fillWorks();
     virtual std::string fillWebBadges();
     virtual std::string fillBlogs();
+    virtual std::string fillRSSItems();
 
     // Formatting for plain string (for example, info line formatting in gopher)
     virtual std::string formatText(std::string text);

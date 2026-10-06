@@ -2,9 +2,9 @@
 image = "/images/webbadges/webring.png"
 redirect = "https://se-webring.xyz"
 
-# [[webbadges]]
-# image = "/images/webbadges/rss.png"
-# redirect = "/"
+[[webbadges]]
+image = "/images/webbadges/rss.png"
+redirect = "/blog/feed.xml"
 
 [[webbadges]]
 image = "/images/webbadges/github.png"

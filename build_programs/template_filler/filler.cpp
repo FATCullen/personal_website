@@ -39,6 +39,7 @@ std::string Filler::expand(const std::string& placeholder) {
     if (placeholder == "INSERT_WORKS")      return fillWorks();
     if (placeholder == "INSERT_WEB_BADGES") return fillWebBadges();
     if (placeholder == "INSERT_BLOGS")      return fillBlogs();
+    if (placeholder == "INSERT_RSS_ITEMS")  return fillRSSItems();
 
     throw std::runtime_error("Unknown placeholder: " + placeholder);
 }
@@ -66,6 +67,7 @@ std::string Filler::fillProjects()  { return "FILLER FOR THIS WEBSITE FORMAT DOE
 std::string Filler::fillWorks()     { return "FILLER FOR THIS WEBSITE FORMAT DOES NOT SUPPORT THIS OPTION"; }
 std::string Filler::fillWebBadges() { return "FILLER FOR THIS WEBSITE FORMAT DOES NOT SUPPORT THIS OPTION"; }
 std::string Filler::fillBlogs()     { return "FILLER FOR THIS WEBSITE FORMAT DOES NOT SUPPORT THIS OPTION"; }
+std::string Filler::fillRSSItems()  { return "FILLER FOR THIS WEBSITE FORMAT DOES NOT SUPPORT THIS OPTION"; }
 
 // Default rendering is just plain text
 std::string Filler::formatText(std::string text) {
