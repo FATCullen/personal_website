@@ -26,9 +26,16 @@ R"!!!(<!DOCTYPE html>
 <a href="/blog/" class="blog-header__link">Blog</a>
 <a href="/" class="blog-header__link">Portfolio</a>
 </nav>
-<button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark mode" aria-pressed="false" disabled>
+<div>
+<button class="icon-btn" aria-label="Navigate to RSS feed" aria-pressed="true">
+<a href="/blog/feed.xml" target="_blank">
+<span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/square-rss-solid-full.svg')"></span>
+</a>
+</button>
+<button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark mode" aria-pressed="true">
 <span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/circle-half-stroke-solid-full.svg')"></span>
 </button>
+</div>
 </header>
 <main class="article">)!!!";
     return header;

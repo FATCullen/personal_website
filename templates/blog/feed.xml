@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>FATCullen - HTML</title>
+    <title>FATCullen - HTTP</title>
     <link>https://fatcullen.com/blog/</link>
-    <description>Posts about things I think are interesting</description>
+    <description>Posts about whatever I want - HTTP version of blog</description>
     <language>en</language>
     <atom:link href="https://fatcullen.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
 INSERT_RSS_ITEMS
