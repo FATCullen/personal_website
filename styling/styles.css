@@ -1,32 +1,37 @@
 :root {
   --bg: #ffffff;
+  --mg: #dddddd;
   --fg: #000000;
   --hl: #f47c11;
   --alt-hl: #af5708;
   --bg-rgb: 255, 255, 255;
+  --mg-rgb: 221, 221, 221;
   --fg-rgb: 0, 0, 0;
   --hl-rgb: 244, 124, 17;
   --alt-hl-rgb: 175, 87, 8;
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     --bg: #000000;
+    --mg: #333333;
     --fg: #ffffff;
-    --hl: #f47c11;
-    --alt-hl: #af5708;
     --bg-rgb: 0, 0, 0;
+    --mg-rgb: 51, 51, 51;
     --fg-rgb: 255, 255, 255;
-    --hl-rgb: 244, 124, 17;
-    --alt-hl-rgb: 175, 87, 8;
+    color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #000000; --fg: #ffffff; --hl: #f47c11; --alt-hl: #af5708; --bg-rgb: 0,0,0; --fg-rgb: 255,255,255; --hl-rgb: 244, 124, 17; --alt-hl-rgb: 175, 87, 8;
-}
-:root[data-theme="light"] {
-  --bg: #ffffff; --fg: #000000; --hl: #f47c11; --alt-hl: #af5708; --bg-rgb: 255,255,255; --fg-rgb: 0,0,0; --hl-rgb: 244, 124, 17; --alt-hl-rgb: 175, 87, 8;
+  --bg: #000000;
+  --mg: #333333;
+  --fg: #ffffff;
+  --bg-rgb: 0, 0, 0;
+  --mg-rgb: 51, 51, 51;
+  --fg-rgb: 255, 255, 255;
+  color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -181,10 +186,11 @@ html:not(.no-js) .js-only { display: flex; }
   max-width: 30rem;
   max-height: calc(100dvh - 16rem);
   padding: 2.5rem;
-  background: rgba(var(--bg-rgb), 0.55);
+  text-shadow: 0 2px 10px var(--bg), 0 -2px 10px var(--bg), 0 0 20px var(--bg);  
+  /* background: rgba(var(--bg-rgb), 0.55);
   border: 1px solid rgba(var(--fg-rgb), 0.15);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); */
   overflow-y: auto;
   overscroll-behavior: none;
   text-align: left;
@@ -223,7 +229,7 @@ html:not(.no-js) .js-only { display: flex; }
   font-size: 1.1rem;
   margin-bottom: 1.25rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(var(--fg-rgb), 0.2);
+  border-bottom: 1px solid var(--fg);
 }
 
 .entry-list {
@@ -275,8 +281,6 @@ html:not(.no-js) .js-only { display: flex; }
 .project-card {
   margin-bottom: 1.0rem;
   display: flex;
-  border: 1px solid rgba(var(--fg-rgb), 0.2);
-  background: rgba(var(--fg-rgb), 0.03);
 }
 .project-card__image {
   width: 12rem;
@@ -299,7 +303,6 @@ html:not(.no-js) .js-only { display: flex; }
 .project-card__desc {
   font-size: 0.85rem;
   line-height: 1.2;
-  opacity: 0.85;
 }
 .project-card__links {
   display: flex;

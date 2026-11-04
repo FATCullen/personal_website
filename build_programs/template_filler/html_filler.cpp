@@ -1,4 +1,5 @@
 #include "html_filler.h"
+#include <iostream>
 
 // Default HTML templates for each field, populated with info for each item in the lists from contents.cpp
 std::string HTMLFiller::fillProjects() {
@@ -49,19 +50,21 @@ std::string HTMLFiller::fillBlogs() {
     std::string result = "";
 
     for (const toml::table& blog : content_.blogs()) {
-        result += "<li class=\"post-item\" data-title=\"" + str(blog["title"]) + "\" data-tags=\"";
-        eachTable(blog["tags"], [&](const toml::table& tag) {
-            result += str(tag["tag"]) + " ";
-        });
-        result += "\" data-date=\"" + str(blog["date"]) + "\">\n";
-        result += "<a href=\"/blog/" + str(blog["file_base"]) + ".html\">\n";
-        result += "<span class=\"post-item__date\">" + str(blog["date"]) + "</span>\n";
-        result += "<span class=\"post-item__title\">" + str(blog["title"]) + "</span>\n";
-        result += "<span class=\"post-item__tags\">\n";
-        eachTable(blog["tags"], [&](const toml::table& tag) {
-            result += "<span class=\"tag\">" + str(tag["tag"]) + "</span>\n";
-        });
-        result += "</span>\n</a>\n</li>\n";
+        if (blog["done"].value_or(false)) {
+            result += "<li class=\"post-item\" data-title=\"" + str(blog["title"]) + "\" data-tags=\"";
+            eachTable(blog["tags"], [&](const toml::table& tag) {
+                result += str(tag["tag"]) + " ";
+            });
+            result += "\" data-date=\"" + str(blog["date"]) + "\">\n";
+            result += "<a href=\"/blog/" + str(blog["file_base"]) + ".html\">\n";
+            result += "<span class=\"post-item__date\">" + str(blog["date"]) + "</span>\n";
+            result += "<span class=\"post-item__title\">" + str(blog["title"]) + "</span>\n";
+            result += "<span class=\"post-item__tags\">\n";
+            eachTable(blog["tags"], [&](const toml::table& tag) {
+                result += "<span class=\"tag\">" + str(tag["tag"]) + "</span>\n";
+            });
+            result += "</span>\n</a>\n</li>\n";
+        }
     }
 
     return result;

@@ -7,7 +7,10 @@ std::string GopherFiller::fillBlogs() {
     std::string result = "";
 
     for (const toml::table& blog : content_.blogs()) {
-        result += "1" + str(blog["title"]) + " - " + str(blog["date"]) + "\t/blog/" + str(blog["file_base"]) + ".gophermap\n";
+        if (blog["done"].value_or(false)) {
+            result += "1" + str(blog["title"]) + " - " + str(blog["date"]) + 
+                    "\t/blog/" + str(blog["file_base"]) + ".gophermap\n";
+        }
     }
 
     return result;

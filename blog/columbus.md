@@ -1,11 +1,12 @@
 +++
-title = "Columbus"
+title = "Columbus Landfall"
 date = "2026-10-03"
+done = false
 [[tags]]
 tag = "Unfinished"
 +++
 
-# Placeholder
+# Columbus Landfall
 
 On October 12, 1492, Cristopher Columbus landed in the new world. To put it lightly, this ended up being a **pretty big deal**. The European *"discovery"* of the Americas kicked off centuries of westward exploration and colonization; It's sometimes considered to be the start of the "modern era."
 

@@ -15,7 +15,7 @@ const colors = { bg: '', fg: '' };
 function readColors() {
   const styles = getComputedStyle(document.documentElement);
   colors.bg = styles.getPropertyValue('--bg').trim();
-  colors.fg = styles.getPropertyValue('--fg').trim();
+  colors.fg = styles.getPropertyValue('--mg').trim();
 }
 
 async function loadAnimation(index) {

@@ -11,7 +11,7 @@ export default function createAnimation(canvas, colours) {
   const BODY_COUNT = 4;
 
   const SOFTENING = 500;
-  const G = 0.03;
+  const G = 0.01;
 
   const SOFTENING_SQRD = SOFTENING * SOFTENING;
 

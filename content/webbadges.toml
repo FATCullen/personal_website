@@ -18,10 +18,10 @@ redirect = "https://www.linkedin.com/in/finn-cullen-a6a012346/"
 image = "/images/webbadges/email.png"
 redirect = "mailto:fatcullen2@gmail.com"
 
-# [[webbadges]]
-# image = "/images/webbadges/gemini.png"
-# redirect = "/"
+[[webbadges]]
+image = "/images/webbadges/gemini.png"
+redirect = "gemini://fatcullen.com"
 
-# [[webbadges]]
-# image = "/images/webbadges/gopher.png"
-# redirect = "/"
+[[webbadges]]
+image = "/images/webbadges/gopher.png"
+redirect = "gopher://fatcullen.com"

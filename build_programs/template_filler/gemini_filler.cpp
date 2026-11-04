@@ -5,8 +5,10 @@ std::string GeminiFiller::fillBlogs() {
  
     // Format to Gemini link syntax '=> link label'
     for (const toml::table& blog : content_.blogs()) {
-        result += "=> /blog/" + str(blog["file_base"]) + ".gmi " +
-                  str(blog["title"]) + " - " + str(blog["date"]) + "\n";
+        if (blog["done"].value_or(false)) {
+            result += "=> /blog/" + str(blog["file_base"]) + ".gmi " +
+                    str(blog["title"]) + " - " + str(blog["date"]) + "\n";
+        }
     }
  
     return result;

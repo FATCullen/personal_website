@@ -13,7 +13,7 @@ export default function createAnimation(canvas, colours) {
   const CONNECTION_START = 10000;
   const CONNECTION_MAX = 1000;
 
-  const POINT_COUNT = 200;
+  const POINT_COUNT = 150;
   let points = [];
 
   function bounce(point) {

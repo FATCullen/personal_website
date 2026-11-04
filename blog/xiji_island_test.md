@@ -1,6 +1,7 @@
 +++
-title = "Xiji Island - Test"
+title = "N Island Facts - Xiji Island"
 date = "2026-09-21"
+done = true
 [[tags]]
 tag = "Geography"
 +++

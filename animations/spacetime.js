@@ -11,9 +11,9 @@ export default function createAnimation(canvas, colours) {
 
   const TICK_MS = 10;
   
-  const GRID_LINE_COUNT = 10;
+  const GRID_LINE_COUNT = 8;
   const DEFORMER_COUNT = 4;
-  const DEFORMER_SPEED = 1.4;
+  const DEFORMER_SPEED = 1;
   const DEFORMER_RADIUS = 180;
   const DEFORMER_STRENGTH = 26;
   const DEFORMER_PEAK_RATIO = 0.15; 
