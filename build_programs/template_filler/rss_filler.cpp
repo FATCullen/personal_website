@@ -33,15 +33,17 @@ std::string RSSFiller::fillRSSItems() {
  
     // Format to RSS feed item
     for (const toml::table& blog : content_.blogs()) {
-        result += "<item>\n";
-        result += "<title>" + str(blog["title"]) + "</title>\n";
-        result += "<pubDate>" + convertToRfc822(str(blog["date"])) + "</pubDate>\n";
-        result += "<link>https://fatcullen.com/blog/" + str(blog["file_base"]) + ".html</link>\n";
-        result += "<guid>https://fatcullen.com/blog/" + str(blog["file_base"]) + ".html</guid>\n";
-        eachTable(blog["tags"], [&](const toml::table& tag) {
-            result += "<category>" + str(tag["tag"]) + "</category>\n";
-        });
-        result += "</item>\n";
+        if (blog["done"].value_or(false)) {
+            result += "<item>\n";
+            result += "<title>" + str(blog["title"]) + "</title>\n";
+            result += "<pubDate>" + convertToRfc822(str(blog["date"])) + "</pubDate>\n";
+            result += "<link>https://fatcullen.com/blog/" + str(blog["file_base"]) + ".html</link>\n";
+            result += "<guid>https://fatcullen.com/blog/" + str(blog["file_base"]) + ".html</guid>\n";
+            eachTable(blog["tags"], [&](const toml::table& tag) {
+                result += "<category>" + str(tag["tag"]) + "</category>\n";
+            });
+            result += "</item>\n";
+        }
     }
  
     return result;
