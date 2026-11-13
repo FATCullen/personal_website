@@ -14,7 +14,7 @@ This file is intended as a test of the markdown parsing system I've built for my
 
 It’s another new term and that means more Islands!  For those who don’t know, I like researching islands… a lot.  Usually that just means I’m wasting lecture time, but since I’m on a co-op term this Fall I get to mix things up by wasting working hours instead.  In an effort to make that time somewhat useful I like to bring you all my favourite find every two weeks, and this time it’s a good one: Xiji Island
 
-![Map of Xiji Island](/images/blog/xiji.png)
+![Map of Xiji Island](/images/blog/xiji_island_test/xiji.png)
 
 - A small rocky island off the West coast of Taiwan, part of the larger Penghu archipelago (roughly 12,315 km North of MathNEWS)
 - Data is sparse on this island, Google Maps doesn’t list its name and, *gasp*, there isn’t even a Wikipedia article
