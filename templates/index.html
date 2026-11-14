@@ -13,64 +13,59 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="/favicon/site.webmanifest" />
 </head>
-<body class="layout-fixed">
+<body>
 
   <div id="bg-fallback" aria-hidden="true"></div>
 
   <div id="bg-root" aria-hidden="true"></div>
 
   <header id="site-header">
-    <a href="/" class="icon-btn" id="home-btn" aria-label="Home">
-      <span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/house-solid-full.svg')"></span>
-    </a>
-
-    <a href="/experience.html" class="icon-btn">
-      Experience
-    </a>
-
-    <a href="/projects.html" class="icon-btn">
-      Projects
-    </a>
-
-    <a href="/blog/" class="icon-btn">
-      Blog
-    </a>
-
-    <button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark mode" aria-pressed="false" disabled>
-      <span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/circle-half-stroke-solid-full.svg')"></span>
-    </button>
-
-    <div class="bg-control" id="bg-control">
-      <div class="bg-control__label">
-        <span class="bg-control__eyebrow">Current background</span>
-        <span class="bg-control__name" id="bg-name">Default</span>
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Toggle navigation menu" aria-controls="site-nav">
+    <label class="menu-toggle icon-btn" for="nav-toggle" aria-hidden="true">☰</label>
+    <nav id="site-nav" aria-label="Main navigation">
+      <a href="/" class="icon-btn" aria-current="page">Home</a>
+      <a href="/experience.html" class="icon-btn">Experience</a>
+      <a href="/projects.html" class="icon-btn">Projects</a>
+      <a href="/blog/" class="icon-btn">Blog</a>
+    </nav>
+    <a class="site-title" href="/">FATCullen</a>
+    <div class="header-actions">
+      <div class="bg-control">
+        <span class="bg-control__name" id="bg-name" aria-live="polite">Default</span>
+        <button class="icon-btn" id="reroll-btn" aria-label="Change background animation" disabled>
+          <span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/rotate-right-solid-full.svg')"></span>
+        </button>
       </div>
-      <button class="icon-btn" id="reroll-btn" aria-label="Change background animation" disabled>
-        <span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/rotate-right-solid-full.svg')"></span>
+      <a class="icon-btn" href="/blog/feed.xml" aria-label="RSS feed">
+        <span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/square-rss-solid-full.svg')"></span>
+      </a>
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark mode" aria-pressed="false" disabled>
+        <span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/circle-half-stroke-solid-full.svg')"></span>
       </button>
     </div>
   </header>
 
-  <main class="card">
+  <div class="page-content page-content--home">
+  <main id="main-content" class="card" tabindex="-1">
     <h1>Hi, my name is Finn!</h1>
     <p>
 INSERT_ABOUT_PROFESSIONAL
     </p>
     <div>
       My favourite languages: 
-      <b class="safe-inline-text">
+      <b>
 INSERT_FAVOURITE_LANGUAGES
       </b>
     </div>
     <div>
       Frameworks: 
-      <b class="safe-inline-text">
+      <b>
 INSERT_FAVOURITE_FRAMEWORKS
       </b>
     </div>
     <div>
       Other skills: 
-      <b class="safe-inline-text">
+      <b>
 INSERT_SKILLS
       </b>
     </div>
@@ -79,12 +74,16 @@ INSERT_ABOUT_PERSONAL
     </p>
     <p>
       Check out the rest of my website for more about my <a href="/experience.html">experiences</a>, my <a href="/projects.html">projects</a>, and <a href="/blog/">posts</a> about things I find interesting.
+    </p>
     <p>
       You can contact me at <a href="mailto:fatcullen2@gmail.com">fatcullen2@gmail.com</a>
     </p>
     
+    <div class="badge-grid">
 INSERT_WEB_BADGES
+    </div>
   </main>
+  </div>
 
   <script type="module" src="/main.js" defer></script>
 </body>

@@ -20,42 +20,37 @@ R"!!!(<!DOCTYPE html>
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
 <link rel="manifest" href="/favicon/site.webmanifest" />
 </head>
-<body class="scrollable has-fixed-header">
-<header class="blog-header">
-<nav class="blog-header__nav">
-<a href="/blog/" class="blog-header__link">Blog</a>
-<a href="/" class="blog-header__link">Portfolio</a>
-</nav>
-<div>
-<button class="icon-btn" aria-label="Navigate to RSS feed" aria-pressed="true">
-<a href="/blog/feed.xml" target="_blank">
-<span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/square-rss-solid-full.svg')"></span>
-</a>
-</button>
-<button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark mode" aria-pressed="true">
-<span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/circle-half-stroke-solid-full.svg')"></span>
-</button>
-</div>
-</header>
-<main class="article">)!!!";
+<body>
+  <header id="site-header">
+    <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Toggle navigation menu" aria-controls="site-nav">
+    <label class="menu-toggle icon-btn" for="nav-toggle" aria-hidden="true">☰</label>
+    <nav id="site-nav" aria-label="Main navigation">
+      <a href="/" class="icon-btn">Home</a>
+      <a href="/experience.html" class="icon-btn">Experience</a>
+      <a href="/projects.html" class="icon-btn">Projects</a>
+      <a href="/blog/" class="icon-btn">Blog</a>
+    </nav>
+    <a class="site-title" href="/">FATCullen</a>
+    <div class="header-actions">
+      <a class="icon-btn" href="/blog/feed.xml" aria-label="RSS feed">
+        <span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/square-rss-solid-full.svg')"></span>
+      </a>
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark mode" aria-pressed="false" disabled>
+        <span class="icon" aria-hidden="true" style="--icon-url: url('/images/icons/circle-half-stroke-solid-full.svg')"></span>
+      </button>
+    </div>
+  </header>
+<div class="page-content">
+  <main id="main-content" class="article" tabindex="-1">)!!!";
     return header;
 }
 
 // Boilerplate footer
 std::string HTMLRenderer::renderFooter() {
-    // R"!!!(
-    // <script type="module" src="/main.js" defer></script>
-    // </main>
-    // <footer class="article-footer">
-    // <hr class="article-footer__rule">
-    // <p class="article-footer__text">&copy; 2026 Finn Cullen. All rights reserved.</p>
-    // </footer>
-    // </body>
-    // </html>
-    // )!!!";
     std::string footer = 
 R"!!!(<script type="module" src="/main.js" defer></script>
 </main>
+  </div>
 </body>
 </html>)!!!";
     return footer;
