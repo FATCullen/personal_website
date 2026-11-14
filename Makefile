@@ -24,7 +24,6 @@ build:
 	cp -r animations $(BUILD_DIR)/animations
 	cp -r images $(BUILD_DIR)/images
 	cp -r favicon $(BUILD_DIR)/favicon
-	cp -r styling/ $(BUILD_DIR)/
 	$(MAKE) -C $(TEMPLATE_FILLER_DIR)
 	$(TEMPLATE_FILLER) "$(TEMPLATE_DIR)" "$(BUILD_DIR)" "$(CONTENT_DIR)" "$(BLOG_DIR)"
 	$(MAKE) -C $(MARKDOWN_PARSER_DIR)
