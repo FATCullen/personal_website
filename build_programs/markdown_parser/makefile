@@ -7,7 +7,7 @@ CMARK_BUILD_DIR := $(CMARK_DIR)/build
 CMARK_SRCS := $(filter-out $(CMARK_DIR)/main.c,$(wildcard $(CMARK_DIR)/*.c))
 CMARK_OBJS := $(patsubst $(CMARK_DIR)/%.c,$(CMARK_BUILD_DIR)/%.o,$(CMARK_SRCS))
 
-CPP_SRCS := main.cpp gopher_renderer.cpp text_tools.cpp gemini_renderer.cpp html_renderer.cpp
+CPP_SRCS := main.cpp gopher_renderer.cpp text_tools.cpp gemini_renderer.cpp html_renderer.cpp node_processing.cpp
 OBJECTS = $(CPP_SRCS:.cpp=.o)
 EXECUTABLE = markdown_parser
 
@@ -31,7 +31,7 @@ $(CMARK_BUILD_DIR)/cmark_export.h: | $(CMARK_BUILD_DIR)
 $(CMARK_BUILD_DIR)/%.o: $(CMARK_DIR)/%.c $(CMARK_BUILD_DIR)/cmark_export.h $(CMARK_BUILD_DIR)/cmark_version.h | $(CMARK_BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-%.o: %.cpp gopher_renderer.h text_tools.h gemini_renderer.h html_renderer.h $(CMARK_BUILD_DIR)/cmark_export.h $(CMARK_BUILD_DIR)/cmark_version.h
+%.o: %.cpp gopher_renderer.h text_tools.h gemini_renderer.h html_renderer.h node_processing.h $(CMARK_BUILD_DIR)/cmark_export.h $(CMARK_BUILD_DIR)/cmark_version.h
 	$(CPP) $(CPPFLAGS) -c -o $@ $<
 
 clean:

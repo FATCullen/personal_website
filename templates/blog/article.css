@@ -96,10 +96,12 @@
   margin: 1.75rem 0;
 }
 
-.article figcaption {
+.article figcaption,
+.article .image-caption {
+  display: block;
   font-size: 0.8rem;
   opacity: 0.6;
-  margin-top: 0.5rem;
+  margin: 0.5rem auto 0;
   text-align: center;
   max-width: 60ch;
 }
@@ -130,4 +132,14 @@
 .article table {
   display: block;
   overflow-x: auto;
+}
+
+.article figure img,
+.article .captioned-image img {
+  margin: 0 auto;
+}
+
+.article .captioned-image {
+  display: block;
+  margin: 1.75rem 0;
 }

@@ -1,4 +1,5 @@
 #include "html_renderer.h"
+#include "node_processing.h"
 
 // Boilerplate header (with nav buttons and UI light/dark toggle)
 std::string HTMLRenderer::renderHeader() {
@@ -56,13 +57,14 @@ R"!!!(<script type="module" src="/main.js" defer></script>
     return footer;
 }
 
-// Uses cmark's built in html renderer
 std::string HTMLRenderer::renderDocument(cmark_node* doc) {
-    std::string out;
+    std::vector<NodeChange> changes;
+    addImageCaptions(doc, changes);
 
-    out += renderHeader();
-    out += cmark_render_html(doc, CMARK_OPT_DEFAULT);
-    out += renderFooter();
+    char* rendered = cmark_render_html(doc, CMARK_OPT_DEFAULT);
+    std::string out = renderHeader() + rendered + renderFooter();
 
+    std::free(rendered);
+    restoreNodeChanges(changes);
     return out;
 }

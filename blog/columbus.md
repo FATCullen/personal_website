@@ -20,7 +20,7 @@ Columbus kept a log during the journey, but this disappeared soon after he retur
 
 Over the years people have proposed many theories.
 
-![Map of the Caribbean, with most seriously proposed landing sites highlighted](/images/blog/columbus/caribbean_landfall_theories.png)
+![Map of the Caribbean, with most 'seriously' proposed landing sites for Columbus highlighted](/images/blog/columbus/caribbean_landfall_theories.png)
 
 The 'official' identity is *Watlings Island* (since renamed to *San Salvador*, which made researching this very annoying). Personally I think that *Watlings* is a pretty unlikely candidate (I prefer the *Plana Cays*), but the purpose of this article isn't to come to any conclusion about the identity of the island.  Instead I'd like to offer a critique of one common method researchers use to pin it down.
 
@@ -51,7 +51,7 @@ The way these magnetic field estimates are made is pretty incredible.  Pickering
 
 The result of Pickering's study is a landing right next to the Plana Cays.  Given that this result aligns with my personal opinions on the landing spot, it's very tempting to take it at face value.  Unfortunately, I think there are a few problems with it.
 
-![The results of Pickering's study](/images/blog/columbus/pickering.jpg)
+![The results of Pickering's study.  Circles are one and two standard deviations](/images/blog/columbus/pickering.jpg)
 
 First and most obviously: it's old (older than me at least).  The geomagnetic model used is CALS3k.1, the first version of CALS3k.  This model is good, but by virtue of the hard work of many scientists over the last couple decades, we now have access to much more refined versions based on much larger datasets.  Secondly, while Pickering's study accounted for many more sources of uncertainty than its predecessors, it didn't account for all of them.  Notably it takes the geomagnetic model entirely at face value.  I can't fault the study for this as the models available at the time didn't allow for easy estimates of uncertainty, but that doesn't change the fact that this calls its results into question.  
 
@@ -67,7 +67,7 @@ The first step was finding data.  The Diario lists headings and distances in lea
 
 From here I started building out my simulation.  In a new python file I used the `Geodesic` library to bring in a `WSG84` geoid, essentially a very accurate model of the Earth's shape.  Helpfully, it also allows us to move a point around on its surface based on distances and headings.  Applying our data from the log we get a path that looks like this:
 
-![Direct plot of Columbusses course, without magnetic field or drift taken into account](/images/blog/columbus/declination.png)
+![Direct plot of Columbus' course, without magnetic field or drift taken into account](/images/blog/columbus/declination.png)
 
 Next, let's bring in the magnetic field.  I downloaded the latest CALS3k dataset, specifically CALS3k.4b.  The 'b' here indicates it's the more conservative version of the model which means the resolution is a little lower than the standard '.4' model.  *However,* unlike the '.4' model it provides the data needed to measure uncertainties, which we need.  Setting the target year to 1492 and plotting the magnetic declination, effectively the variation of the local magnetic field from true north, gives us a plot that looks like this:
 
@@ -91,7 +91,7 @@ CALS3k, and other similar geomagnetic field models are at their core spheres whe
 
 You can think of this as being very similar to how Fourier series use sine waves of different frequencies to approach any other function, just instead of a line in 2D we're approximating a function on a sphere.  (Also, if you think back to high school chemistry, you might notice that these shapes look suspiciously like the different electron orbitals! [This is not a coincidence!](https://en.wikipedia.org/w/index.php?title=Atomic_orbital&oldid=1384645609#Real_orbitals))
 
-![Fourier series for a square wave](/images/blog/columbus/fourier_series.png)
+![Fourier series, adding sine waves to sum to a square wave](/images/blog/columbus/fourier_series.png)
 
 CALS3k uses all harmonics up to degree 10, which means 120 total (there are `1 + 2n` for each degree `n`).  Then, for every decade between 2030 BCE and 2020 CE, each harmonic gets a weight to determine how much it contributes to the overall field.  If you're not looking at a decade it tracks exactly, it uses the weights of nearby decades as knots in a spline and smoothly interpolates between them, resulting in our field changing smoothly both over the sphere, and throughout time.  This means 120 harmonics, and 402 decades of weights for each, giving us `120 x 402 = 48240` numbers!
 
@@ -105,7 +105,7 @@ You'll notice that while there are many similarities, there is also a lot of var
 
 Lets plug it into the sim!  I set up a Monte Carlo sim which would run 500 voyages and select a randomly perturbed version of the magnetic field for each.  After that, all that's left is to account for ocean currents and wind, which there are plenty of good data sets for.  Then we'll finally know where Columbus landed!
 
-![Results of Monte Carlo sim taking into account uncertainty in magnetic field](/images/blog/columbus/columbus_monte_carlo.png)
+![Results of Monte Carlo sim, each dot is an individual trial](/images/blog/columbus/columbus_monte_carlo.png)
 
 Oh...
 
