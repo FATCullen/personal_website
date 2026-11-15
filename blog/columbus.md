@@ -63,7 +63,30 @@ Eventually I decided that if I wanted an analysis of this I was happy with, it w
 
 The first step was finding data.  The Diario lists headings and distances in leagues for each day, though to complicate matters it's not entirely clear *which* leagues these were.  General consensus seems to be that Columbus used a mixture of Italian Leagues (2.67 miles each) and Portuguese leagues (3.2 miles), both fairly antiquated units, but easy to convert.  Gathering the data in the Diario in modern units gave me a table like this: 
 
-
+| Month | Day | Leg | Bearing | Distance |   | Month | Day | Leg | Bearing | Distance |
+|------ | --- | --- | ------- | -------- | - |------ | --- | --- | ------- | -------- |
+| 9 | 8 | 1 | 270 | 9 |  | 9 | 26 | 2 | 225 | 6 | 
+| 9 | 9 | 1 | 270 | 18 |  | 9 | 26 | 3 | 270 | 17 | 
+| 9 | 9 | 2 | 281.5 | 36 |  | 9 | 27 | 1 | 270 | 24 | 
+| 9 | 10 | 1 | 270 | 60 |  | 9 | 28 | 1 | 270 | 14 | 
+| 9 | 11 | 1 | 270 | 24 |  | 9 | 29 | 1 | 270 | 24 | 
+| 9 | 11 | 2 | 270 | 20 |  | 9 | 30 | 1 | 270 | 14 | 
+| 9 | 12 | 1 | 270 | 33 |  | 10 | 1 | 1 | 270 | 25 | 
+| 9 | 13 | 1 | 270 | 33 |  | 10 | 2 | 1 | 270 | 39 | 
+| 9 | 14 | 1 | 270 | 20 |  | 10 | 3 | 1 | 270 | 47 | 
+| 9 | 15 | 1 | 270 | 32 |  | 10 | 4 | 1 | 270 | 63 | 
+| 9 | 16 | 1 | 270 | 39 |  | 10 | 5 | 1 | 270 | 57 | 
+| 9 | 17 | 1 | 270 | 50 |  | 10 | 6 | 1 | 270 | 40 | 
+| 9 | 18 | 1 | 270 | 55 |  | 10 | 7 | 1 | 270 | 23 | 
+| 9 | 19 | 1 | 270 | 25 |  | 10 | 7 | 2 | 247.5 | 5 | 
+| 9 | 20 | 1 | 286.88 | 9 |  | 10 | 8 | 1 | 247.5 | 11.5 | 
+| 9 | 21 | 1 | 270 | 16 |  | 10 | 9 | 1 | 225 | 5 | 
+| 9 | 22 | 1 | 292.5 | 36 |  | 10 | 9 | 2 | 281.25 | 4 | 
+| 9 | 23 | 1 | 315 | 32 |  | 10 | 9 | 3 | 247.5 | 22.5 | 
+| 9 | 24 | 1 | 270 | 14.5 |  | 10 | 10 | 1 | 247.5 | 59 | 
+| 9 | 25 | 1 | 270 | 4.5 |  | 10 | 11 | 1 | 247.5 | 27 | 
+| 9 | 25 | 2 | 225 | 17 |  | 10 | 11 | 2 | 270 | 22.5 |
+| 9 | 26 | 1 | 270 | 8 |  |  |  |  |  |  |
 
 From here I started building out my simulation.  In a new python file I used the `Geodesic` library to bring in a `WSG84` geoid, essentially a very accurate model of the Earth's shape.  Helpfully, it also allows us to move a point around on its surface based on distances and headings.  Applying our data from the log we get a path that looks like this:
 
@@ -71,7 +94,7 @@ From here I started building out my simulation.  In a new python file I used the
 
 Next, let's bring in the magnetic field.  I downloaded the latest CALS3k dataset, specifically CALS3k.4b.  The 'b' here indicates it's the more conservative version of the model which means the resolution is a little lower than the standard '.4' model.  *However,* unlike the '.4' model it provides the data needed to measure uncertainties, which we need.  Setting the target year to 1492 and plotting the magnetic declination, effectively the variation of the local magnetic field from true north, gives us a plot that looks like this:
 
-![Isogonic map of declination for the year 1492 based on the CALS3k.4b model](/images/blog/columbus/isogonic.png)
+![Isogonic map of declination for the year 1492 based on the CALS3k.4b model.  Here red is an Eastward declination, and blue is Westward](/images/blog/columbus/isogonic.png)
 
 Next: uncertainties.  For this we need to look under the hood of CALS3k.  The raw data for the `4b` model looks like this:
 
@@ -105,7 +128,7 @@ You'll notice that while there are many similarities, there is also a lot of var
 
 Lets plug it into the sim!  I set up a Monte Carlo sim which would run 500 voyages and select a randomly perturbed version of the magnetic field for each.  After that, all that's left is to account for ocean currents and wind, which there are plenty of good data sets for.  Then we'll finally know where Columbus landed!
 
-![Results of Monte Carlo sim, each dot is an individual trial](/images/blog/columbus/columbus_monte_carlo.png)
+![Results of Monte Carlo sim.  Each dot is an individual trial, and the tick marks along the line of best fit represent standard deviations](/images/blog/columbus/columbus_monte_carlo.png)
 
 Oh...
 

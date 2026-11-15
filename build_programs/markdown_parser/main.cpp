@@ -11,6 +11,7 @@
 #include <vector>
 
 #include "cmark-gfm.h"
+#include "cmark-gfm-core-extensions.h"
 #include "gopher_renderer.h"
 #include "gemini_renderer.h"
 #include "html_renderer.h"
@@ -71,7 +72,7 @@ static std::string stripFrontmatter(std::string text, const fs::path& path) {
 }
 
 // Render one input .md file to .html, .gmi, and .gophermap
-static bool processBlog(const fs::path& in, const fs::path& out_dir) {
+static bool processBlog(const fs::path& in, const fs::path& out_dir, cmark_parser* parser, cmark_llist* extensions) {
     const std::string stem = in.stem().string();
     std::vector<fs::path> written;
 
@@ -79,14 +80,15 @@ static bool processBlog(const fs::path& in, const fs::path& out_dir) {
         std::string markdown = stripFrontmatter(readFile(in), in);
 
         // Parse document to AST
-        DocPtr doc(cmark_parse_document(markdown.data(), markdown.size(), CMARK_OPT_DEFAULT));
+        cmark_parser_feed(parser, markdown.data(), markdown.size());
+        DocPtr doc(cmark_parser_finish(parser));
         if (!doc) throw std::runtime_error("cmark failed to parse the document");
 
         // Parse AST to desired formats (.html, .gmi, .gophermap)
         std::vector<std::pair<std::string, std::string>> outputs; // extension, rendered text
         { GeminiRenderer r; outputs.emplace_back(".gmi",       r.renderDocument(doc.get())); }
         { GopherRenderer r; outputs.emplace_back(".gophermap", r.renderDocument(doc.get())); }
-        { HTMLRenderer   r; outputs.emplace_back(".html",      r.renderDocument(doc.get())); }
+        { HTMLRenderer   r; outputs.emplace_back(".html",      r.renderDocument(doc.get(), extensions)); }
 
         // Write parsing results to output folder
         for (const auto& [ext, text] : outputs) {
@@ -113,6 +115,16 @@ int main(int argc, char* argv[]) {
     fs::path blogs_dir = argv[1];
     fs::path out_dir   = argv[2];
 
+    cmark_gfm_core_extensions_ensure_registered();
+
+    cmark_parser *parser = cmark_parser_new(CMARK_OPT_DEFAULT);
+    cmark_syntax_extension *table_ext = cmark_find_syntax_extension("table");
+    if (table_ext) {
+        cmark_parser_attach_syntax_extension(parser, table_ext);
+    }
+
+    cmark_llist *extensions = cmark_parser_get_syntax_extensions(parser);
+
     if (!fs::is_directory(blogs_dir)) {
         std::cerr << "ERROR: blogs directory not found: " << blogs_dir << "\n";
         return 1;
@@ -135,7 +147,7 @@ int main(int argc, char* argv[]) {
     // Proccess all files
     int failures = 0;
     for (const fs::path& in : inputs) {
-        if (!processBlog(in, out_dir)) ++failures;
+        if (!processBlog(in, out_dir, parser, extensions)) ++failures;
     }
 
     // Output result

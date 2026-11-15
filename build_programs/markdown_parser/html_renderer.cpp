@@ -57,11 +57,11 @@ R"!!!(<script type="module" src="/main.js" defer></script>
     return footer;
 }
 
-std::string HTMLRenderer::renderDocument(cmark_node* doc) {
+std::string HTMLRenderer::renderDocument(cmark_node* doc, cmark_llist* extensions) {
     std::vector<NodeChange> changes;
     addImageCaptions(doc, changes);
 
-    char* rendered = cmark_render_html(doc, CMARK_OPT_DEFAULT, nullptr);
+    char* rendered = cmark_render_html(doc, CMARK_OPT_DEFAULT, extensions);
     std::string out = renderHeader() + rendered + renderFooter();
 
     std::free(rendered);

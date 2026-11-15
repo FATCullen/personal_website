@@ -113,25 +113,21 @@
 }
 
 .article table {
-  width: 100%;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.5rem auto;
+  overflow-x: auto;
   border-collapse: collapse;
-  margin: 1.5rem 0;
+  overflow-wrap: normal;
+  word-break: normal;
   font-size: 0.9rem;
 }
 
 .article th, .article td {
-  text-align: left;
   padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid rgba(var(--fg-rgb), 0.15);
-}
-
-.article th {
-  border-bottom: 2px solid rgba(var(--fg-rgb), 0.3);
-}
-
-.article table {
-  display: block;
-  overflow-x: auto;
+  border: 1px solid rgba(var(--fg-rgb), 0.3);
+  text-align: left;
 }
 
 .article figure img,

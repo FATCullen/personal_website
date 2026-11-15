@@ -4,7 +4,7 @@
 
 class HTMLRenderer {
 public:
-    std::string renderDocument(cmark_node* doc);
+    std::string renderDocument(cmark_node* doc, cmark_llist* extensions);
     
 private:
     std::string renderHeader();
