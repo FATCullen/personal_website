@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
-#include "cmark.h"
+#include "cmark-gfm.h"
 
 struct GemLink {
     std::string url;

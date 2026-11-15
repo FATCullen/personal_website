@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
-#include "cmark.h"
+#include "cmark-gfm.h"
 
 struct GopherLink {
     char type;

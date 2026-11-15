@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "cmark.h"
+#include "cmark-gfm.h"
 
 // Logs a change to a node, so it can be reverted later
 struct NodeChange {

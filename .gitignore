@@ -4,3 +4,4 @@
 /build_programs/markdown_parser/markdown_parser
 /build_programs/cmark/build
 /build_programs/template_filler/template_filler
+/build_programs/cmark-gfm/build

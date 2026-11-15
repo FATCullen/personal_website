@@ -61,7 +61,7 @@ std::string HTMLRenderer::renderDocument(cmark_node* doc) {
     std::vector<NodeChange> changes;
     addImageCaptions(doc, changes);
 
-    char* rendered = cmark_render_html(doc, CMARK_OPT_DEFAULT);
+    char* rendered = cmark_render_html(doc, CMARK_OPT_DEFAULT, nullptr);
     std::string out = renderHeader() + rendered + renderFooter();
 
     std::free(rendered);

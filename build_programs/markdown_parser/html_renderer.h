@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "cmark.h"
+#include "cmark-gfm.h"
 
 class HTMLRenderer {
 public:

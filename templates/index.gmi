@@ -16,5 +16,5 @@ INSERT_ABOUT_PERSONAL
 You can contact me at
 => mailto:fatcullen2@gmail.com fatcullen2@gmail.com
 
-## BLOG:
+## GEMLOG:
 INSERT_BLOGS

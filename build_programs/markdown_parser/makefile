@@ -1,9 +1,14 @@
 CPP = g++
 CC = gcc
-CPPFLAGS = -std=c++17 -Wall -I../cmark/build -I../cmark
-CFLAGS = -std=c11 -Wall -DCMARK_STATIC_DEFINE -I../cmark/build -I../cmark
-CMARK_DIR := ../cmark
+CPPFLAGS = -std=c++17 -Wall -DCMARK_GFM_STATIC_DEFINE -I../cmark-gfm/build -I../cmark-gfm
+CFLAGS = -std=c11 -Wall -DCMARK_GFM_STATIC_DEFINE -I../cmark-gfm/build -I../cmark-gfm
+CMARK_DIR := ../cmark-gfm
 CMARK_BUILD_DIR := $(CMARK_DIR)/build
+CMARK_VERSION_MAJOR := 0
+CMARK_VERSION_MINOR := 29
+CMARK_VERSION_PATCH := 0
+CMARK_VERSION_GFM := 13
+CMARK_GENERATED_HEADERS := $(CMARK_BUILD_DIR)/cmark-gfm_export.h $(CMARK_BUILD_DIR)/cmark-gfm_version.h $(CMARK_BUILD_DIR)/config.h
 CMARK_SRCS := $(filter-out $(CMARK_DIR)/main.c,$(wildcard $(CMARK_DIR)/*.c))
 CMARK_OBJS := $(patsubst $(CMARK_DIR)/%.c,$(CMARK_BUILD_DIR)/%.o,$(CMARK_SRCS))
 
@@ -22,16 +27,23 @@ $(EXECUTABLE): $(OBJECTS) $(CMARK_OBJS)
 $(CMARK_BUILD_DIR):
 	mkdir -p $(CMARK_BUILD_DIR)
 
-$(CMARK_BUILD_DIR)/cmark_version.h: $(CMARK_DIR)/cmark_version.h.in | $(CMARK_BUILD_DIR)
-	printf '%s\n' '#ifndef CMARK_VERSION_H' '#define CMARK_VERSION_H' '' '#define CMARK_VERSION ((0 << 16) | (0 << 8) | 0)' '#define CMARK_VERSION_STRING "0.0.0"' '' '#endif' > $@
+$(CMARK_BUILD_DIR)/cmark-gfm_version.h: $(CMARK_DIR)/cmark-gfm_version.h.in makefile | $(CMARK_BUILD_DIR)
+	sed -e 's/@PROJECT_VERSION_MAJOR@/$(CMARK_VERSION_MAJOR)/g' \
+	    -e 's/@PROJECT_VERSION_MINOR@/$(CMARK_VERSION_MINOR)/g' \
+	    -e 's/@PROJECT_VERSION_PATCH@/$(CMARK_VERSION_PATCH)/g' \
+	    -e 's/@PROJECT_VERSION_GFM@/$(CMARK_VERSION_GFM)/g' $< > $@
 
-$(CMARK_BUILD_DIR)/cmark_export.h: | $(CMARK_BUILD_DIR)
-	printf '%s\n' '#ifndef CMARK_EXPORT_H' '#define CMARK_EXPORT_H' '' '#if defined(_WIN32) && defined(CMARK_STATIC_DEFINE)' '#define CMARK_EXPORT' '#elif defined(_WIN32)' '#define CMARK_EXPORT __declspec(dllexport)' '#else' '#define CMARK_EXPORT' '#endif' '' '#endif' > $@
+$(CMARK_BUILD_DIR)/cmark-gfm_export.h: makefile | $(CMARK_BUILD_DIR)
+	printf '%s\n' '#ifndef CMARK_GFM_EXPORT_H' '#define CMARK_GFM_EXPORT_H' '' '#define CMARK_GFM_EXPORT' '' '#endif' > $@
 
-$(CMARK_BUILD_DIR)/%.o: $(CMARK_DIR)/%.c $(CMARK_BUILD_DIR)/cmark_export.h $(CMARK_BUILD_DIR)/cmark_version.h | $(CMARK_BUILD_DIR)
+$(CMARK_BUILD_DIR)/config.h: $(CMARK_DIR)/config.h.in makefile | $(CMARK_BUILD_DIR)
+	sed -e 's/^#cmakedefine HAVE_STDBOOL_H$$/#define HAVE_STDBOOL_H/' \
+	    -e 's/^#cmakedefine \(.*\)$$/\/\* #undef \1 *\//' $< > $@
+
+$(CMARK_BUILD_DIR)/%.o: $(CMARK_DIR)/%.c $(CMARK_GENERATED_HEADERS) | $(CMARK_BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-%.o: %.cpp gopher_renderer.h text_tools.h gemini_renderer.h html_renderer.h node_processing.h $(CMARK_BUILD_DIR)/cmark_export.h $(CMARK_BUILD_DIR)/cmark_version.h
+%.o: %.cpp gopher_renderer.h text_tools.h gemini_renderer.h html_renderer.h node_processing.h $(CMARK_GENERATED_HEADERS)
 	$(CPP) $(CPPFLAGS) -c -o $@ $<
 
 clean:

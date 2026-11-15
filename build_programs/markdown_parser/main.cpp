@@ -10,7 +10,7 @@
 #include <utility>
 #include <vector>
 
-#include "cmark.h"
+#include "cmark-gfm.h"
 #include "gopher_renderer.h"
 #include "gemini_renderer.h"
 #include "html_renderer.h"

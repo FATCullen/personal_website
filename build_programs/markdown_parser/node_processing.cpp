@@ -23,7 +23,7 @@ std::vector<cmark_node*> findNodes(cmark_node* doc, cmark_node_type type) {
 // Adds images alt text underneath as a caption
 static void addImageCaption(cmark_node* image, std::vector<NodeChange>& changes) {
     // Render to HTML
-    char* rendered = cmark_render_html(image, CMARK_OPT_DEFAULT);
+    char* rendered = cmark_render_html(image, CMARK_OPT_DEFAULT, nullptr);
     std::string html(rendered);
     std::free(rendered);
 
