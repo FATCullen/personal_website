@@ -29,6 +29,8 @@ private:
     GemRenderResult renderLink(cmark_node* node);
     GemRenderResult renderImage(cmark_node* node);
 
+    GemRenderResult renderTable(cmark_node* node);
+
     std::string flushText(std::string text) const;
     std::string flushLinks(const std::vector<GemLink>& links) const;
 

@@ -1,4 +1,6 @@
 #include "gemini_renderer.h"
+#include "table_renderer.h"
+#include <cstring>
 #include <algorithm>
 #include <cctype>
 
@@ -24,6 +26,9 @@ GemRenderResult GeminiRenderer::renderChildren(cmark_node* node) {
 
 // Renders a node, calls a different formatting rule depending on the type of markdown element (via cmark ast)
 GemRenderResult GeminiRenderer::renderNode(cmark_node* node) {
+    if (std::strcmp(cmark_node_get_type_string(node), "table") == 0)
+        return renderTable(node);
+
     switch (cmark_node_get_type(node)) {
 
     case CMARK_NODE_TEXT: {
@@ -90,8 +95,11 @@ GemRenderResult GeminiRenderer::renderList(cmark_node* node) {
     GemRenderResult out;
     for (cmark_node* item = cmark_node_first_child(node); item; item = cmark_node_next(item)) {
         GemRenderResult r = renderNode(item);
-        std::string text = collapseNewlines(r.text);
-        out.text += "* " + text + "\n";
+        // Preformatted tables must retain their line breaks inside list items.
+        if (r.text.find("```Table\n") != std::string::npos)
+            out.text += "* \n" + r.text;
+        else
+            out.text += "* " + collapseNewlines(r.text) + "\n";
         out.links.insert(out.links.end(), r.links.begin(), r.links.end());
     }
     out.text += "\n";
@@ -103,6 +111,11 @@ GemRenderResult GeminiRenderer::renderBlockQuote(cmark_node* node) {
     GemRenderResult out;
     for (cmark_node* c = cmark_node_first_child(node); c; c = cmark_node_next(c)) {
         GemRenderResult r = renderNode(c);
+        if (std::strcmp(cmark_node_get_type_string(c), "table") == 0) {
+            out.text += r.text;
+            out.links.insert(out.links.end(), r.links.begin(), r.links.end());
+            continue;
+        }
         std::string text = collapseNewlines(r.text);
         while (!text.empty() && text.back() == '\n' && text.size() > 1 && text[text.size()-2] == '\n')
             text.pop_back();
@@ -190,5 +203,23 @@ std::string GeminiRenderer::renderDocument(cmark_node* doc) {
     }
     out += renderFooter();
 
+    return out;
+}
+
+// Use a preformatted block so Gemini clients preserve table spacing.
+GemRenderResult GeminiRenderer::renderTable(cmark_node* node) {
+    GemRenderResult out;
+    std::vector<std::vector<std::string>> rows;
+    for (cmark_node* row = cmark_node_first_child(node); row; row = cmark_node_next(row)) {
+        rows.emplace_back();
+        for (cmark_node* cell = cmark_node_first_child(row); cell; cell = cmark_node_next(cell)) {
+            auto result = renderChildren(cell);
+            if (result.text.empty() && !result.links.empty())
+                result.text = result.links.front().label;
+            rows.back().push_back(result.text);
+            out.links.insert(out.links.end(), result.links.begin(), result.links.end());
+        }
+    }
+    out.text = "```Table\n" + renderTextTable(node, rows, 80) + "```\n\n";
     return out;
 }

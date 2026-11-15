@@ -12,7 +12,7 @@ CMARK_GENERATED_HEADERS := $(CMARK_BUILD_DIR)/cmark-gfm_export.h $(CMARK_BUILD_D
 CMARK_SRCS := $(filter-out $(CMARK_DIR)/main.c,$(wildcard $(CMARK_DIR)/*.c))
 CMARK_OBJS := $(patsubst $(CMARK_DIR)/%.c,$(CMARK_BUILD_DIR)/%.o,$(CMARK_SRCS))
 
-CPP_SRCS := main.cpp gopher_renderer.cpp text_tools.cpp gemini_renderer.cpp html_renderer.cpp node_processing.cpp
+CPP_SRCS := main.cpp gopher_renderer.cpp text_tools.cpp gemini_renderer.cpp html_renderer.cpp node_processing.cpp table_renderer.cpp
 OBJECTS = $(CPP_SRCS:.cpp=.o)
 EXECUTABLE = markdown_parser
 
@@ -20,6 +20,8 @@ EXECUTABLE = markdown_parser
 .SILENT: all clean
 
 all: $(EXECUTABLE)
+
+table_renderer.o: ../tabulate/tabulate.hpp
 
 $(EXECUTABLE): $(OBJECTS) $(CMARK_OBJS)
 	$(CPP) $(CPPFLAGS) -o $@ $(OBJECTS) $(CMARK_OBJS)
@@ -43,7 +45,7 @@ $(CMARK_BUILD_DIR)/config.h: $(CMARK_DIR)/config.h.in makefile | $(CMARK_BUILD_D
 $(CMARK_BUILD_DIR)/%.o: $(CMARK_DIR)/%.c $(CMARK_GENERATED_HEADERS) | $(CMARK_BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-%.o: %.cpp gopher_renderer.h text_tools.h gemini_renderer.h html_renderer.h node_processing.h $(CMARK_GENERATED_HEADERS)
+%.o: %.cpp gopher_renderer.h text_tools.h gemini_renderer.h html_renderer.h node_processing.h table_renderer.h $(CMARK_GENERATED_HEADERS)
 	$(CPP) $(CPPFLAGS) -c -o $@ $<
 
 clean:

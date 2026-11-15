@@ -39,6 +39,8 @@ private:
     RenderResult renderLink(cmark_node* node, int subWidth, bool isSub);
     RenderResult renderImage(cmark_node* node);
 
+    RenderResult renderTable(cmark_node* node, int subWidth, bool isSub);
+
     std::string flushText(std::string text) const;
     std::string flushLinks(const std::vector<GopherLink>& links) const;
 

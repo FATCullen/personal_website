@@ -1,4 +1,7 @@
 #include "gopher_renderer.h"
+#include "table_renderer.h"
+#include <cstring>
+#include <algorithm>
 #include "text_tools.h"
 #include <cctype>
 
@@ -16,6 +19,9 @@ RenderResult GopherRenderer::renderChildren(cmark_node* node, int subWidth, bool
 
 // Renders a node, calls a different formatting rule depending on the type of markdown element (via cmark ast)
 RenderResult GopherRenderer::renderNode(cmark_node* node, int subWidth, bool isSub) {
+    if (std::strcmp(cmark_node_get_type_string(node), "table") == 0)
+        return renderTable(node, subWidth, isSub);
+
     switch (cmark_node_get_type(node)) {
 
     case CMARK_NODE_TEXT: {
@@ -212,5 +218,27 @@ std::string GopherRenderer::renderDocument(cmark_node* doc) {
     }
     out += renderFooter();
 
+    return out;
+}
+// Preserve cell formatting and collect links before laying out the table.
+RenderResult GopherRenderer::renderTable(cmark_node* node, int subWidth, bool isSub) {
+    RenderResult out;
+    std::vector<std::vector<std::string>> rows;
+    for (cmark_node* row = cmark_node_first_child(node); row; row = cmark_node_next(row)) {
+        rows.emplace_back();
+        for (cmark_node* cell = cmark_node_first_child(row); cell; cell = cmark_node_next(cell)) {
+            auto result = renderChildren(cell, subWidth, isSub);
+            if (result.text.empty() && !result.links.empty())
+                result.text = result.links.front().display;
+            rows.back().push_back(result.text);
+            out.links.insert(out.links.end(), result.links.begin(), result.links.end());
+        }
+    }
+    out.text = renderTextTable(node, rows, subWidth);
+    if (!isSub) {
+        out.text = gtxt::rightPad(out.text, subWidth);
+        out.text = gtxt::padCenter(out.text, mainWidth_);
+    }
+    out.text += "\n";
     return out;
 }
