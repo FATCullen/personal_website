@@ -90,6 +90,22 @@ The first step was finding data.  The Diario lists headings and distances in lea
 
 From here I started building out my simulation.  In a new python file I used the `Geodesic` library to bring in a `WSG84` geoid, essentially a very accurate model of the Earth's shape.  Helpfully, it also allows us to move a point around on its surface based on distances and headings.  Applying our data from the log we get a path that looks like this:
 
+```python
+def fizz_buzz(n=100):
+  for i in range(1, n + 1):
+    if i % 3 == 0 and i % 5 == 0:
+      print("FizzBuzz")
+    elif i % 3 == 0:
+      print("Fizz")
+    elif i % 5 == 0:
+      print("Buzz")
+    else:
+      print(i)
+
+
+fizz_buzz()
+```
+
 ![Direct plot of Columbus' course, without magnetic field or drift taken into account](/images/blog/columbus/declination.png)
 
 Next, let's bring in the magnetic field.  I downloaded the latest CALS3k dataset, specifically CALS3k.4b.  The 'b' here indicates it's the more conservative version of the model which means the resolution is a little lower than the standard '.4' model.  *However,* unlike the '.4' model it provides the data needed to measure uncertainties, which we need.  Setting the target year to 1492 and plotting the magnetic declination, effectively the variation of the local magnetic field from true north, gives us a plot that looks like this:
@@ -98,7 +114,7 @@ Next, let's bring in the magnetic field.  I downloaded the latest CALS3k dataset
 
 Next: uncertainties.  For this we need to look under the hood of CALS3k.  The raw data for the `4b` model looks like this:
 
-```
+```plaintext
 -2000.0  1990.0  4 lambda= 0.2D-12 tau= 0.2D-02 gufmend= 0.1D+03 dipole 0.0D+00
 10           0         402  -2030.0000000000000       -2020.0000000000000......
 

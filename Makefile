@@ -21,9 +21,7 @@ MARKDOWN_PARSER := $(MARKDOWN_PARSER_DIR)/markdown_parser
 build:
 	mkdir -p $(BUILD_DIR)
 	rm -rf $(BUILD_DIR)/*
-	cp -r animations $(BUILD_DIR)/animations
 	cp -r images $(BUILD_DIR)/images
-	cp -r favicon $(BUILD_DIR)/favicon
 	$(MAKE) -C $(TEMPLATE_FILLER_DIR)
 	$(TEMPLATE_FILLER) "$(TEMPLATE_DIR)" "$(BUILD_DIR)" "$(CONTENT_DIR)" "$(BLOG_DIR)"
 	$(MAKE) -C $(MARKDOWN_PARSER_DIR)

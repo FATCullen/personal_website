@@ -11,15 +11,16 @@ R"!!!(<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blog — FATCullen</title>
 <script>document.documentElement.classList.remove('no-js');</script>
-<link rel="stylesheet" href="/styles.css">
-<link rel="stylesheet" href="/blog/blog.css">
-<link rel="stylesheet" href="/blog/article.css">
+<link rel="stylesheet" href="/styles/main.css">
+<link rel="stylesheet" href="/styles/blog.css">
+<link rel="stylesheet" href="/styles/article.css">
+<link id="code-theme" rel="stylesheet" href="/scripts/highlight/styles/atom-one-light.min.css">
 
-<link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
-<link rel="shortcut icon" href="/favicon/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-<link rel="manifest" href="/favicon/site.webmanifest" />
+<link rel="icon" type="image/png" href="/images/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/images/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/images/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="/images/favicon/site.webmanifest" />
 </head>
 <body>
   <header id="site-header">
@@ -49,9 +50,11 @@ R"!!!(<!DOCTYPE html>
 // Boilerplate footer
 std::string HTMLRenderer::renderFooter() {
     std::string footer = 
-R"!!!(<script type="module" src="/main.js" defer></script>
-</main>
+R"!!!(</main>
   </div>
+<script src="/scripts/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<script type="module" src="/scripts/main.js"></script>
 </body>
 </html>)!!!";
     return footer;

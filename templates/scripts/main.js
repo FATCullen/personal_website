@@ -58,6 +58,15 @@ function initTheme() {
 
   const isLight = () => getComputedStyle(document.documentElement)
     .getPropertyValue('--bg').trim() === '#ffffff';
+  const updateCodeTheme = () => {
+    const stylesheet = document.getElementById('code-theme');
+    if (!stylesheet) return;
+    const theme = isLight() ? 'light' : 'dark';
+    stylesheet.href = `/scripts/highlight/styles/atom-one-${theme}.min.css`;
+  };
+  updateCodeTheme();
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateCodeTheme);
+
   toggle.setAttribute('aria-pressed', String(isLight()));
   toggle.disabled = false;
 
@@ -67,6 +76,7 @@ function initTheme() {
     localStorage.setItem('theme', next);
     toggle.setAttribute('aria-pressed', String(next === 'light'));
     readColors();
+    updateCodeTheme();
   });
 }
 
