@@ -63,6 +63,7 @@ R"!!!(</main>
 std::string HTMLRenderer::renderDocument(cmark_node* doc, cmark_llist* extensions) {
     std::vector<NodeChange> changes;
     addImageCaptions(doc, changes);
+    addCodeBlockLabels(doc, changes);
 
     char* rendered = cmark_render_html(doc, CMARK_OPT_DEFAULT, extensions);
     std::string out = renderHeader() + rendered + renderFooter();

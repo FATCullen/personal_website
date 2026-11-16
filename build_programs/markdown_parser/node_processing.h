@@ -11,4 +11,5 @@ struct NodeChange {
 // Functions to find and apply alterations to certain html blocks
 std::vector<cmark_node*> findNodes(cmark_node* doc, cmark_node_type type);
 void addImageCaptions(cmark_node* doc, std::vector<NodeChange>& changes);
+void addCodeBlockLabels(cmark_node* doc, std::vector<NodeChange>& changes);
 void restoreNodeChanges(std::vector<NodeChange>& changes);

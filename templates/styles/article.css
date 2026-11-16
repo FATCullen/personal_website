@@ -80,6 +80,22 @@
   border-top: 3px solid var(--alt-hl);
 }
 
+.article .code-block {
+  margin: 1.5rem 0;
+}
+
+.article .code-block__language {
+  padding: 0.3rem 1.1rem;
+  border-bottom: 3px solid var(--hl);
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 0.8rem;
+}
+
+.article .code-block pre {
+  margin: 0;
+  border-top: 0;
+}
+
 .article pre code {
   background: none;
   padding: 0;

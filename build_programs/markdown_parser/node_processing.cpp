@@ -1,6 +1,7 @@
 #include "node_processing.h"
 #include <cstdlib>
 #include <string>
+#include <sstream>
 
 // Helper to find nodes of a given type
 std::vector<cmark_node*> findNodes(cmark_node* doc, cmark_node_type type) {
@@ -58,6 +59,36 @@ static void addImageCaption(cmark_node* image, std::vector<NodeChange>& changes)
 void addImageCaptions(cmark_node* doc, std::vector<NodeChange>& changes) {
     for (cmark_node* image : findNodes(doc, CMARK_NODE_IMAGE)) {
         addImageCaption(image, changes);
+    }
+}
+
+// Add the fence language above the code without changing cmark's code markup.
+void addCodeBlockLabels(cmark_node* doc, std::vector<NodeChange>& changes) {
+    for (cmark_node* block : findNodes(doc, CMARK_NODE_CODE_BLOCK)) {
+        const char* info = cmark_node_get_fence_info(block);
+        std::istringstream fields(info ? info : "");
+        std::string language;
+        if (!(fields >> language)) continue;
+
+        std::string label;
+        for (char ch : language) {
+            switch (ch) {
+            case '&': label += "&amp;"; break;
+            case '<': label += "&lt;"; break;
+            case '>': label += "&gt;"; break;
+            default: label += ch;
+            }
+        }
+
+        char* rendered = cmark_render_html(block, CMARK_OPT_DEFAULT, nullptr);
+        std::string markup = "<div class=\"code-block\"><div class=\"code-block__language\">" +
+            label + "</div>" + rendered + "</div>";
+        std::free(rendered);
+
+        cmark_node* replacement = cmark_node_new(CMARK_NODE_CUSTOM_BLOCK);
+        cmark_node_set_on_enter(replacement, markup.c_str());
+        cmark_node_replace(block, replacement);
+        changes.push_back({block, replacement});
     }
 }
 
