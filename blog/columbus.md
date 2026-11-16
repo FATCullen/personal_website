@@ -1,7 +1,7 @@
 +++
 title = "Columbus Landfall"
-date = "2026-10-03"
-done = false
+date = "2026-11-16"
+done = true
 [[tags]]
 tag = "Geography"
 [[tags]]
@@ -41,7 +41,7 @@ If only it were that simple.
 
 Even assuming Columbus's measurements were accurate, and the *Diario* transcribed them well, a few factors make this tracking method a lot more difficult than it sounds.  For one, there are ocean currents.  Columbus would have noted down his distances travelled based on how he *appeared* to be moving relative to the water, but that doesn't account for how the water itself was moving.  Wind would have had a similar effect (called leeway), shifting the ship in ways that are difficult to estimate.  Another difficult thing to account for is the magnetic field.  Columbus logged his headings based on compass readings, but compasses don't point to true North, they point to magnetic North, and they don't even do that very well.  The geomagnetic field is fairly irregular, a compass in Texas will point about 4° East of true North, but a compass in Maine will point 16° West.  To make matters even more complicated, magnetic north and the field irregularities change and shift over time.  They would have been very different in 1492.  
 
-I've found seven serious attempts find *Guanahani* this way, and each accounts for more of these sources of uncertainty (see [Schott 1880](https://library.oarcloud.noaa.gov/docs.lib/htdocs/rescue/cgs/002_pdf/CSC-0079.PDF), [McElroy 1942](https://www.jstor.org/stable/210010), [Marden 1986](https://dn790008.ca.archive.org/0/items/edg-ng-1981/edg%20NG%201986-11%20170-5%20Nov.pdf), [Peck 1991](https://www.bing.com/ck/a?!&&p=ba20352fb18c60f1bb7991ca45d2e25785ca0d644aaed9ccf880798716be4d60JmltdHM9MTc5MDU1MzYwMA&ptn=3&ver=2&hsh=4&fclid=2afb54b5-c5a7-618f-1eb6-437ac4616036&psq=+Douglas+T.+Peck+1991+columbus+paper&u=a1aHR0cHM6Ly9teW1hbmF0ZWUuY29udGVudGRtLm9jbGMub3JnL2RpZ2l0YWwvYXBpL2NvbGxlY3Rpb24vcDE2NjgxY29sbDIvaWQvNDI5NC9kb3dubG9hZA), [Richardson and Goldsmith 1987](https://www2.whoi.edu/staff/prichardson/wp-content/uploads/sites/75/2018/11/Richardson-Goldsmith-1987-Oceanus-Columbus.pdf) [& 1992](https://www2.whoi.edu/staff/prichardson/wp-content/uploads/sites/75/2018/11/Goldsmith-Richardson-1992-WHOI-92-14.pdf), [Pickering 2004](http://columbuslandfall.com/ccnav/shd2004.shtml)).  The earliest, by Schott, is more or less a direct application of the headings in the logs, with an educated guess at the magnetic field model.  The latest, by Pickering, is so far the most competent (I'd strongly recommend reading it, as well as checking out the rest of [his website](http://columbuslandfall.com/ccnav/cclandfl.shtml), it's one of the better sources of information on this whole topic).  
+I've found seven serious attempts find *Guanahani* this way, and each accounts for more of these sources of uncertainty (see [Schott 1880](https://library.oarcloud.noaa.gov/docs.lib/htdocs/rescue/cgs/002_pdf/CSC-0079.PDF), [McElroy 1942](https://www.jstor.org/stable/210010), [Marden 1986](https://dn790008.ca.archive.org/0/items/edg-ng-1981/edg%20NG%201986-11%20170-5%20Nov.pdf), [Peck 1991](https://www.bing.com/ck/a?!&&p=ba20352fb18c60f1bb7991ca45d2e25785ca0d644aaed9ccf880798716be4d60JmltdHM9MTc5MDU1MzYwMA&ptn=3&ver=2&hsh=4&fclid=2afb54b5-c5a7-618f-1eb6-437ac4616036&psq=+Douglas+T.+Peck+1991+columbus+paper&u=a1aHR0cHM6Ly9teW1hbmF0ZWUuY29udGVudGRtLm9jbGMub3JnL2RpZ2l0YWwvYXBpL2NvbGxlY3Rpb24vcDE2NjgxY29sbDIvaWQvNDI5NC9kb3dubG9hZA), [Richardson and Goldsmith 1987](https://www2.whoi.edu/staff/prichardson/wp-content/uploads/sites/75/2018/11/Richardson-Goldsmith-1987-Oceanus-Columbus.pdf) [& 1992](https://www2.whoi.edu/staff/prichardson/wp-content/uploads/sites/75/2018/11/Goldsmith-Richardson-1992-WHOI-92-14.pdf), [Pickering 2004](http://columbuslandfall.com/ccnav/shd2004.shtml)).  The earliest, by Schott, is more or less a direct application of the headings in the logs, with an educated guess at the magnetic field model.  The latest, by Pickering, is so far the best (I'd strongly recommend reading it, as well as checking out the rest of [his website](http://columbuslandfall.com/ccnav/cclandfl.shtml), it's one of the better sources of information on this whole topic).  
 
 Pickering's simulations use a huge database of drift measurements from floating sensors (NCEI 0098060) to estimate and give uncertainty on current and wind, and a fascinating dataset called a historical geomagnetic model to estimate the magnetic field. 
 
@@ -88,27 +88,11 @@ The first step was finding data.  The Diario lists headings and distances in lea
 | 9 | 25 | 2 | 225 | 17 |  | 10 | 11 | 2 | 270 | 22.5 |
 | 9 | 26 | 1 | 270 | 8 |  |  |  |  |  |  |
 
-From here I started building out my simulation.  In a new python file I used the `Geodesic` library to bring in a `WSG84` geoid, essentially a very accurate model of the Earth's shape.  Helpfully, it also allows us to move a point around on its surface based on distances and headings.  Applying our data from the log we get a path that looks like this:
-
-```python
-def fizz_buzz(n=100):
-  for i in range(1, n + 1):
-    if i % 3 == 0 and i % 5 == 0:
-      print("FizzBuzz")
-    elif i % 3 == 0:
-      print("Fizz")
-    elif i % 5 == 0:
-      print("Buzz")
-    else:
-      print(i)
-
-
-fizz_buzz()
-```
+From here I started building out my simulation.  In a new python file I used the `Geodesic` library to bring in a `WSG84` geoid, essentially a very accurate model of the Earth's shape.  Helpfully, it also allows us to move a point around on its surface based on distances and headings, which allows us to make a basic plot of the course:
 
 ![Direct plot of Columbus' course, without magnetic field or drift taken into account](/images/blog/columbus/declination.png)
 
-Next, let's bring in the magnetic field.  I downloaded the latest CALS3k dataset, specifically CALS3k.4b.  The 'b' here indicates it's the more conservative version of the model which means the resolution is a little lower than the standard '.4' model.  *However,* unlike the '.4' model it provides the data needed to measure uncertainties, which we need.  Setting the target year to 1492 and plotting the magnetic declination, effectively the variation of the local magnetic field from true north, gives us a plot that looks like this:
+Next, let's bring in the magnetic field.  I downloaded the latest CALS3k dataset, specifically CALS3k.4b.  The 'b' here indicates it's the more conservative version of the model which means the resolution is a little lower than the standard '.4' model.  *However,* unlike the '.4' model it provides the data needed to measure uncertainties, which we need.  Setting the target year to 1492 and plotting the magnetic declination (the difference between the local magnetic field and true North) gives us a plot that looks like this:
 
 ![Isogonic map of declination for the year 1492 based on the CALS3k.4b model.  Here red is an Eastward declination, and blue is Westward](/images/blog/columbus/isogonic.png)
 
@@ -136,7 +120,40 @@ CALS3k uses all harmonics up to degree 10, which means 120 total (there are `1 +
 
 The second row contains our uncertainties.  For each knot in each spline, it gives a +- 1 standard deviation uncertainty on that knot's value.  
 
-Finally, we have all the understanding we need for our uncertainty calculations!  For each of the 120 harmonics we find the four closest spline knots (so the years 1480, 1490, 1500, and 1510) and based on their corresponding uncertainties, and a randomly selected normal variable we generate a perturbed set of knots for that harmonic.  Then, after some interpolation on the spline we get our randomly selected weight for that harmonic in 1492!  Doing this for all the harmonics, we get randomly perturbed fields that look like these.  
+Finally, we have all the understanding we need for our uncertainty calculations!  For each of the 120 harmonics we find the four closest spline knots (so the years 1480, 1490, 1500, and 1510) and based on their corresponding uncertainties, and a randomly selected normal variable we generate a perturbed set of knots for that harmonic.  Then interpolate on the spline and we get our randomly selected weight for that harmonic!  Doing this for all the harmonics, we can generate randomly perturbed fields.  The code looks something like this:
+
+```python
+# Parse the plaintext model file into usable data
+# Here mu is the spline weights, and sigma is the uncertainty on each
+knot_years, mu, sigma, n_degree, n_splines, t_start, t_end = parse_cals3k_4b(model_path)
+
+# For each harmonic draw a normal variable, and multiply all sigma values by it
+# Then add to the base spline weights, to get the varied weights
+coeffs_perturbed = mu + sigma * rng.standard_normal((1, mu.shape[1]))
+
+# Write the perturbed model to a temporary file, and then load it for use
+write_model_file(tmp_path, knot_years, coeffs_perturbed, n_degree, n_splines, t_start, t_end)
+trial_model = Model('perturbed', fname=tmp_path)
+
+# Simulate voyage
+lats = [start_lat]
+lons = [start_lon]
+for leg in course:
+# Load data from Diario
+    month, day, leg_num, bearing, distance = leg 
+    loc = (lats[-1], lons[-1])
+# Find the declination for the starting position from the perturbed model
+    declination, i, f = local_curve(1492, loc, trial_model)
+# Correct the bearing based on the declination
+    corrected_bearing = bearing + declination[0]
+# Step the course, and save new position
+    result = geod.Direct(loc[0], loc[1], corrected_bearing, leagues_to_m(distance))
+    lats.append(result['lat2'])
+    lons.append(result['lon2'])
+print(f"Final position: {lats[-1]:.6f}, {lons[-1]:.6f}")
+```
+
+This was **very** annoying to figure out, I had to reverse engineer it from an old fortran program included with CALS3k, but it does work.  Here are a few examples of the randomly varied fields it generates:
 
 ![Four perturbed isogonic maps of declination for the year 1492 based on the CALS3k.4b model](/images/blog/columbus/isogonic_perturbed.png)
 

@@ -40,7 +40,7 @@ std::string HTMLFiller::fillWebBadges() {
     std::string result = "";
 
     eachTable(content_.at("webbadges", "webbadges"), [&](const toml::table& badge) {
-        result  += "<a class=\"badge\" target=\"_blank\" href=\"" + str(badge["redirect"]) + "\"><img src=\"" + str(badge["image"]) + "\"></img></a>\n";
+        result  += "<a class=\"badge\" target=\"_blank\" href=\"" + str(badge["redirect"]) + "\"><img src=\"" + str(badge["image"]) + "\" alt=\"Web badge\"></a>\n";
     });
 
     return result;
