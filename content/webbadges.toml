@@ -29,3 +29,7 @@ redirect = "gemini://fatcullen.com"
 [[webbadges]]
 image = "/images/webbadges/gopher.png"
 redirect = "gopher://fatcullen.com"
+
+[[webbadges]]
+image = "/images/webbadges/80x15.png"
+redirect = "https://fatcullen.com/blog/web_badges.html"

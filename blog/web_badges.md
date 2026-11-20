@@ -34,8 +34,8 @@ I made several of the badges for my site myself, feel free to steal them!  If yo
 
 I made these two for the old / small web protocols [gopher](https://en.wikipedia.org/w/index.php?title=Gopher_(protocol)&oldid=1386495286) and [gemini](https://geminiprotocol.net/) since I host this site on them too:
 
-![This one was very hard to fit in so few pixels](/images/webbadges/gemini.png)
 ![Looks a little more like a chipmunk than a gopher...](/images/webbadges/gopher.png)
+![This one was very hard to fit in so few pixels](/images/webbadges/gemini.png)
 
 If by some miracle you happen to be a fellow University of Waterloo Software Engineering student, I made this badge for [our webring](https://se-webring.xyz/) (another relic of the old internet): 
 
@@ -54,6 +54,10 @@ And finally here's all the other web badges I use or like:
 ![](/images/webbadges/lotr.png)
 ![](/images/webbadges/discworld.png)
 ![](/images/webbadges/evangelion.png)
+![](/images/webbadges/zelda.png)
 ![](/images/webbadges/wikipedia.png)
+![](/images/webbadges/rss.png)
+![](/images/webbadges/email.png)
+![](/images/webbadges/80x15.png)
 
 Enjoy!
