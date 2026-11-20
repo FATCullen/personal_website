@@ -326,6 +326,7 @@ html:not(.no-js) .js-only {
 .badge img {
   width: 6.6rem;
   height: auto;
+  image-rendering: pixelated;
   image-rendering: crisp-edges;
 }
 

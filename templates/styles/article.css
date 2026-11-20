@@ -113,6 +113,13 @@
   margin: 1.75rem auto;
 }
 
+.article img[src^="/images/webbadges/"] {
+  width: 240px;
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
 .article figure {
   margin: 1.75rem 0;
 }
